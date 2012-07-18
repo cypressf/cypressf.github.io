@@ -1,0 +1,4 @@
+body{background:#fff;color:#000;}
+a{color:#77e}
+section > h1, header h1{color:#ee6500;}
+header, header h1, header a, footer, footer a{background:#ee6500; color:#fff;}
