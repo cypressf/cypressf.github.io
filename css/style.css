@@ -26,10 +26,6 @@ ul#online li a{padding:1em;margin:0;display:block;}
 mobile
 =============*/
 @media screen and (max-width: 26em) {
-
-	body {
-		-webkit-text-size-adjust: none;
-	}
 	section > h1, header h1{ font-size: 2em }
 	p { margin-bottom: 0.5em; }
 	article, section{margin:0;padding:1em 0}
@@ -37,7 +33,5 @@ mobile
 	article h1 { margin-top: 1em; }
 	#contact { margin:0; padding:0;font-size:0.8em;}
 	footer { padding:0;}
-	footer ul#online li{
-		float:none;
-	}
+	footer ul#online li{float:none}
 }
