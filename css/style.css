@@ -31,6 +31,7 @@ mobile
     section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
     p { margin-bottom: 0.5em; -webkit-transition: margin .2s;}
     article, section{margin:0;padding-top:1em; padding-bottom:1em;-webkit-transition: margin .2s, padding .2s;}
+    section {margin:0 1em;}
     footer { padding:0;}
     footer ul#online li{float:none}
 }
