@@ -50,20 +50,21 @@ mobile
     p { margin-bottom: 0.5em; -webkit-transition: margin .2s;}
     article{margin:0;padding:1em 0}
     header h1{
-        float:left;
         margin:0;
         padding:0;
     }
     #contact {
-        float:left;
+        position:absolute;
+        top:0;
+        margin:0;
+        margin-left:23em;
+        font-size:0.9em;
         padding:0.5em 1.5em;
         line-height:1em;
         height:2em;
-        margin:0;
     }
     header {
-        height:3em;
-        padding:0 2em;
+        padding:0 2em;-webkit-transition: padding .2s;
     }
     #contact li {
         margin-right:1em;
@@ -71,8 +72,7 @@ mobile
 }
 
 @media screen and (max-width: 46em) and (max-height: 26em) {
-    header h1, #contact {float:none;}
-    header{height:auto;padding:0.5em 2em;}
+    header{padding:0.5em 2em;-webkit-transition: padding .2s;}
+    #contact {padding:0;position:static;margin:0;font-size:0.9em;}
     #contact li {margin-right:0;}
-    #contact {padding:0;}
 }
