@@ -1,0 +1,1036 @@
+<html>
+    
+    <head>
+        <style>
+            article {
+                max-width:40em;
+                margin:0 auto;
+                font-family:sans-serif;
+                line-height: 1.6;
+                font-size:0.8em;
+                color:#0f2300;
+            }
+            tr {
+                border-top:1px solid #c2cfb9;
+            }
+            table {
+                font-size:inherit;
+                padding:1em;
+                box-shadow:inset 0 0 8px #c2cfb9;
+                color:#194000;
+                background:#e4e8e2;
+                border-collapse: collapse;
+                -webkit-column-span:all;
+                max-width:40em;
+            }
+            thead tr{
+                font-weight:bold;
+                border-top:none;
+                border-bottom:1px solid #c2cfb9;
+            }
+            table tr:first-child {
+                border-top:none;
+            }
+            td {
+                padding:0.5em 0.5em;
+            }
+            th {
+                padding:0.5em;
+            }
+            h1, h2, h3{
+                margin-bottom:0;
+            }
+            h2 {
+                margin-top:2em;
+            }
+            h2+p, h3+p {
+                margin-top:0;
+            }
+            header h1 {
+                margin-bottom:0;
+            }
+            header p{
+                margin-top:0;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <article id="sex_ed">
+        <header>
+        <h1>
+            Investigation of Sex Education and Pregnancy rates
+        </h1>
+        <p>
+            by Cypress Frankenfeld 10.25.11
+        </p>
+        </header>
+
+        <h2>
+            Introduction
+        </h2>
+        <p>
+            Studies have been done on the efficacy of abstinence-only sex education
+            that conclude that abstinence-only sex ed has no effect on teen pregnancy
+            rates. Additionally, some studies have concluded that comprehensive sex
+            ed reduces the rates of teen pregnancy.<sup><a href="#abst_only">[1]</a></sup> I would like to be able to quantify
+            the effect of sex ed on teen pregnancy, or unwanted pregnancy. Thus, I
+            enter this project with the goal of investigating the effects of abstinence-only
+            sex education and comprehensive sex education on pregnancy rates, unwanted
+            pregnancy rates, and age of first pregnancy for young adults and teens.
+            I use the most recent data from the National Survey of Family Growth (NSFG),
+            Cycle 7, 2006-2010.<sup><a href="#NSFG">[2]</a></sup>
+        </p>
+        <h2>
+            Summary of Data
+        </h2>
+        <p>
+            The NSFG data from Cycle 7 contains data from surveys conducted from 2006-2010.
+            The surveys contain responses from 12279 women but out of the women surveyed,
+            only those with age &#x2264; 24 years were asked about sex ed history, so I only
+            include women under 25 in my study. In total there are 4395 women under
+            25 years of age who had a total of 2405 pregnancies.
+        </p>
+        <h2>
+            Data Fields I Use
+        </h2>
+        <p>
+            I use the following data fields in my analysis
+        </p>
+        <p>
+        </p>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        Age of woman at time of conception
+                    </td>
+                    <td>
+                        Applicable for each pregnancy
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Wantedness of pregnancy
+                    </td>
+                    <td>
+                        A value that can be one of: overdue, right time, too soon, didn't care,
+                        unwanted, or not sure
+                        </p>
+                        <p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sex ed on how to say no
+                    </td>
+                    <td>
+                        Whether or not a woman received official instruction on how to say no
+                        to sex.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sex ed on how to use birth control
+                    </td>
+                    <td>
+                        Whether or not a woman received official instruction on how to use birth
+                        control.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Sex ed on sexually transmitted diseases
+                    </td>
+                    <td>
+                        Whether or not a woman received official instruction on how to avoid STDs
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Number of pregnancies
+                    </td>
+                    <td>
+                        How many pregnancies each woman had
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Whether or not a woman had intercourse with a male before first having
+                        sex education (of all types)
+                    </td>
+                    <td>
+                        A value I recode to determine whether or not the woman had sex before
+                        receiving sex ed. If so, I exclude the case from my study.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Income level
+                    </td>
+                    <td>
+                        A value that corresponds to the total income of a woman's family. Income
+                        seems to be correlated with everything so I include this field to see if
+                        it causes any correlations I might observe between other fields.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <h2>
+            Explorations:
+        </h2>
+        <p>
+            I am interested in how sex education affects the probability of having
+            an unwanted pregnancy, as well as the age at which a woman first gets pregnant,
+            and how many pregnancies a woman has total. For the following explorations,
+            I group women into four categories:
+        </p>
+        <ol start="1">
+            <li>
+                Women who had sex ed on how to use birth control (2914 total)
+            </li>
+            <li>
+                Women who did not have sex ed on how to use birth control (1165 total)
+            </li>
+            <li>
+                (subset of #2) Women who did not have sex ed on how to use birth control
+                and did have sex ed on how to say no to sex (commonly known as abstinence
+                only education). (745 total)
+            </li>
+            <li>
+                Women who had sex ed on sexually transmitted diseases. (3694 total)
+            </li>
+        </ol>
+        <p>
+        </p>
+        <p>
+            To be clear, the four categories are not mutually exclusive. Women who
+            had sex ed on how to use birth control includes some women who had sex
+            ed on sexually transmitted diseases and visa versa. Women who had abstinence
+            only education is a subset of category 2. Additionally, in each category,
+            I exclude data from women who reported having intercourse with a male before
+            first having sex education. I do this because the sex ed that these women
+            had could potentially have come after their first pregnancy, in which case,
+            it is impossible to draw conclusions as to how the sex ed affected their
+            pregnancy.
+        </p>
+        <p>
+        </p>
+        <h3>
+            Investigating Unwanted Pregnancies
+        </h3>
+        <p>
+            In order to see how birth control relates to unwanted pregnancies, I look
+            at the ratio of unwanted pregnancies to total pregnancies for all four
+            groups of women. If a woman had no pregnancies, I did not include them
+            in the analysis. The ratio corresponds to percentage of unwanted births.
+            A ratio of 1.0 means all the births the woman had were unwanted. A ratio
+            of 0.0 means all of the births the woman had were wanted. Using this number,
+            I hope to get a glimpse into how well a woman was able control when she
+            got pregnant (under the assumption that a woman would not choose to get
+            pregnant if a she did not want a pregnancy at the time).
+        </p>
+        <p>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Birth Control
+                    </td>
+                    <td>
+                        No Birth Control
+                    </td>
+                    <td>
+                        Abstinence Only
+                    </td>
+                    <td>
+                        STD Education
+                    </td>
+                </tr>
+            </thead>
+                <tbody>
+
+                <tr>
+                    <th>
+                        Mean
+                    </th>
+                    <td>
+                        0.1806
+                    </td>
+                    <td>
+                        0.1928
+                    </td>
+                    <td>
+                        0.2231
+                    </td>
+                    <td>
+                        0.1746
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Std Deviation
+                    </th>
+                    <td>
+                        0.3407
+                    </td>
+                    <td>
+                        0.3506
+                    </td>
+                    <td>
+                        0.3683
+                    </td>
+                    <td>
+                        0.3373
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            The difference between the wantedness ratios for the four groups is small,
+            and the standard deviations are high in comparison to the mean. For example,
+            if I define a null hypothesis to be that the observed difference between
+            the distributions of the wantedness of pregnancies under the "birth control"
+            and "no birth control" groups is due to chance, I get a p-value of 0.57.
+            This indicates that different types (or lack) of sex education does not
+            show a correlation with percentage of unwanted births. This is unexpected
+            because I assumed I would see a moderate correlation between sex ed and
+            wantedness of births. If a woman was taught about birth control in sex
+            ed, for example, I assumed she would be more likely to control her pregnancies,
+            and thus, have fewer unwanted pregnancies.
+        </p>
+        <h3>
+            Is the wantedness of pregnancies a relevant statistic?
+        </h3>
+        <p>
+            Based on the previous exploration, I saw that testing a difference in
+            means between the wantedness of pregnancies for women with and without
+            birth control education revealed a high p-value, and therefore is considered
+            statistically insignificant. It is still possible, however, that the standard
+            deviations are statistically significant. Based on the table in the previous
+            section, it looks like they are similar, but it doesn't hurt to test them
+            anyway. In order to do so, I need to run a chi-square test.
+        </p>
+        <p>
+        </p>
+        <p>
+            For the chi-square test, I will use two cells: <em>wanted pregnancies</em> and <em>unwanted
+            pregnancies</em>. Based on the pregnancy pool, I get the following expected
+            and observed values for women who had birth control education and women
+            who did not have birth control education.
+        </p>
+        <p>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Observed # of wanted pregnancies
+                    </td>
+                    <td>
+                        Expected # of wanted pregnancies
+                    </td>
+                    <td>
+                        Observed # of unwanted pregnancies
+                    </td>
+                    <td>
+                        Expected # of unwanted pregnancies
+                    </td>
+                </tr>
+            </thead>
+                <tbody>
+                <tr>
+                    <th>
+                        Birth Control Ed
+                    </th>
+                    <td>
+                        496
+                    </td>
+                    <td>
+                        493.087
+                    </td>
+                    <td>
+                        95
+                    </td>
+                    <td>
+                        97.913
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        No Birth Control Ed
+                    </th>
+                    <td>
+                        204
+                    </td>
+                    <td>
+                        206.913
+                    </td>
+                    <td>
+                        44
+                    </td>
+                    <td>
+                        41.087
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            The total deviation
+            <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=%5Csum%5Climits_%7Bi%7D%5E%7B%5C+%7D%28observed-expected%7B%29%7D%5E%7B2%7D%2Fexpected" height="32px" style="vertical-align:middle">
+            ends up being 0.351.
+        </p>
+        <p>
+            Running a Monte Carlo simulation reveals a p-value of 0.836. In other
+            words, the total deviation is also statistically insignificant. I am now
+            discarding wantedness as an insignificant statistic and moving on to other
+            potential independent variables.
+        </p>
+        <h3>
+            Investigating Number of Pregnancies
+        </h3>
+        <p>
+            Although in the first investigation we see that a woman is not less likely
+            to have unwanted pregnancies if she has birth control sex ed, I am not
+            accounting for a certain case: a woman may get pregnant unintentionally,
+            but not care one way or the other. There is a difference between an <em>unwanted</em> pregnancy,
+            and an <em>unintentional</em> pregnancy. The survey does not include data on whether
+            or not pregnancies were intentional and it would be impossible to infer
+            through other variables. In order to account for this lack of information,
+            I will look at the total number of pregnancies for each woman. My assumption
+            is that a woman who has more unintentional pregnancies will have more pregnancies
+            on average than a woman who has only intentional pregnancies (assuming
+            the average woman intends to have the same number of pregnancies). A higher
+            number of pregnancies, for one of the four groups, would therefore indicate
+            a higher number of unintentional pregnancies for that group.
+        </p>
+        <p>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Birth Control
+                    </td>
+                    <td>
+                        No Birth Control
+                    </td>
+                    <td>
+                        Abstinence Only
+                    </td>
+                    <td>
+                        STD Education
+                    </td>
+                    <td>
+                        Everyone
+                    </td>
+                </tr>
+            </thead>
+                <tbody>
+
+                <tr>
+                    <th>
+                        Mean
+                    </th>
+                    <td>
+                        0.4882
+                    </td>
+                    <td>
+                        0.5365
+                    </td>
+                    <td>
+                        0.4328
+                    </td>
+                    <td>
+                        0.4480
+                    </td>
+                    <td>
+                        0.5020
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Standard Deviation
+                    </th>
+                    <td>
+                        0.9946
+                    </td>
+                    <td>
+                        1.1015
+                    </td>
+                    <td>
+                        1.0821
+                    </td>
+                    <td>
+                        0.9452
+                    </td>
+                    <td>
+                        1.0265
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            If I define a null hypothesis to be that the difference between the distributions
+            of birth control and no birth control is due to chance. The p-value for
+            the null hypothesis is 0.203. Similarly large p-values occur when I compute
+            the difference in means of each combination of two groups. Again, the variations
+            between the four groups are so small as to be insignificant.
+        </p>
+        <h3>
+            Investigating Age of First Pregnancy
+        </h3>
+        <p>
+            An often cited statistic when looking at sex ed is the "teen pregnancy
+            rate." I think the teen pregnancy rate is relevant, but I think that it
+            is contrived to group ages into "teens" and "adults." By only looking at
+            teen pregnancy rates, studies ignore the distribution of ages at which
+            women first become pregnant. Therefore, I wish to generalize this statistic
+            into <em>age at conception of first pregnancy</em>. A younger mean age at first
+            conception in a certain group indicates women in that group are using less
+            protection, or having intercourse at an earlier age than those of other
+            groups. A higher mean age at first conception indicates women in that group
+            are using more protection, or having intercourse at a later age.
+        </p>
+        <p>
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        Birth Control
+                    </td>
+                    <td>
+                        No Birth Control
+                    </td>
+                    <td>
+                        Abstinence Only
+                    </td>
+                    <td>
+                        STD Education
+                    </td>
+                    <td>
+                        Everyone
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        Mean
+                    </th>
+                    <td>
+                        19.28
+                    </td>
+                    <td>
+                        18.23
+                    </td>
+                    <td>
+                        18.60
+                    </td>
+                    <td>
+                        18.58
+                    </td>
+                    <td>
+                        18.30
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Std Deviation
+                    </th>
+                    <td>
+                        2.36
+                    </td>
+                    <td>
+                        2.20
+                    </td>
+                    <td>
+                        2.11
+                    </td>
+                    <td>
+                        2.05
+                    </td>
+                    <td>
+                        2.08
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            Noticeably, the mean age of pregnancy given that a woman had sex ed about
+            birth control is about a year higher than the mean age of pregnancy given
+            that a woman had no sex ed about birth control. In addition, the mean age
+            of pregnancy given that a woman had abstinence only education is very similar
+            to the mean age of pregnancy for everyone. The standard deviation of all
+            four cases is around 2 years. There seems to be a relationship between
+            birth control sex ed and age of first conception. Based on the means it
+            seems as if birth control education increases the age at first pregnancy,
+            while abstinence only education does not have a significant effect on the
+            age at first pregnancy. To further investigate this, I present a plot of
+            the CDF of the age at first conception for the four groups:
+        </p>
+        <p>
+            <img height="338" src="img/sex_ed_1.png" width="451">
+        </p>
+        <p>
+            Fig 1. CDF of age at first conception (years) for the four groups: women
+            who had sex education on birth control, women who did not have sex education
+            on birth control, women who had abstinence only education, and women who
+            had sex education on STDs. The CDF of women who had sex education on birth
+            control is shifted to the right, indicating a higher age at first conception
+            than the other groups.
+        </p>
+        <h3>
+            Does birth control education have a statistically significant effect on
+            first pregnancy age?
+        </h3>
+        <p>
+            Out of the four groups, the two groups "birth control ed" and "no birth
+            control ed," are the only two that are mutually exclusive and collectively
+            exhaustive. The distribution of these two groups looks sufficiently different
+            to me that I wish to examine them further. In order to determine how likely
+            it is that the age at first pregnancy is altered by birth control education,
+            I put forward the following hypothesis: the differences in the distributions
+            of age at first conception between the groups "birth control ed" and "no
+            birth control ed" (shown in the previous section, Fig. 1) are a result
+            of the type of sex ed that the groups received. Given that a woman has
+            had birth control ed, it is likely that she will have a first pregnancy
+            later than a woman who has not had birth control ed. The null hypothesis:
+            the difference between the two groups (birth control ed, and no birth control
+            ed) was purely chance. The p-value of the null hypothesis is 0.001. This
+            indicates that the null hypothesis is unlikely, and that the difference
+            in distributions is statistically significant.
+        </p>
+        
+        <h3>
+            Does abstinence only education have a statistically significant effect
+            on first pregnancy age?
+        </h3>
+        <p>
+            I observed that the mean first pregnancy age for abstinence only education
+            was close to the mean for all women. In order to quantify the statistical
+            significance of abstinence only education, I ran a Monte Carlo simulation
+            to see what the distribution in differences in means between abstinence
+            only education and all women is, and computed the p-value for the null
+            hypothesis (the difference between the distribution of ages of first pregnancy
+            for women who had abstinence only education and the distribution of ages
+            of first pregnancy for all women is purely coincidental). The p-value was
+            0.991. In other words, it the observed effect of abstinence only education
+            is statistically insignificant.
+        </p>
+        <h3>
+            Modeling age at first conception by a normal distribution
+        </h3>
+        <p>
+            I was able to model the age of first conception with a normal distribution.
+            I plotted the distribution of the age of first conception vs the standard
+            normal values to generate a normal probability plot and got a result that
+            was linear.
+        </p>
+        <p>
+            <img height="315" src="img/sex_ed_2.png" width="420">
+        </p>
+        <p>
+            Fig 2. Normal probability plot for the age at first conception for women
+            who had birth control education. The plot is mostly linear, indicating
+            that the distribution of ages at first conception is close to normal.
+        </p>
+        <p>
+        </p>
+        <p>
+            It makes sense that the distribution of ages at first conception would
+            be normal because the age at first conception is most likely the combination
+            of many factors, such as demographics, family life, and education. The
+            ages that were recorded in the dataset are the result of a sum of all these
+            factors. I would like to poke around and try to find some of these other
+            factors. In the next section, I will examine <em>income</em>.
+        </p>
+        <h3>
+            How does income come into play?
+        </h3>
+        <p>
+            Up until the last section, I've assumed that age at first conception is
+            influenced only by sex ed. Now I've also observed that it can be modeled
+            by a normal distribution, and that there are probably many factors that
+            influence it. Income is a logical variable to investigate, because it tends
+            to be correlated with everything.<sup><a href="#downey">[5]</a></sup>
+        </p>
+        <p>
+        </p>
+        <p>
+            To examine the relationship between income and age at first conception,
+            I created a scatter plot of log(income) vs age at first conception, Fig.
+            3. I jittered the log(income) data by 0.2 because income was grouped in
+            bins on the survey, and I wanted to be able to see the pattern more clearly.
+        </p>
+        <p>
+            <img height="301" src="img/sex_ed_3.png" width="401">
+        </p>
+        <p>
+            Fig 3. There seems to be a potential weak correlation between log(income)
+            and age at first conception, with the lowest income bracket being an outlier.
+            Overlaid on the scatter plot is a linear least-squares fit.
+        </p>
+        <p>
+        </p>
+        <p>
+            In order to find the linear regression that matched the scatter plot,
+            I found the parameters for <span class="equation">&#x0233; = &#x03b1; + &#x03b2;x&#x0304;</span> to be  <span class="equation">&#x03b1; = 0.40816</span> and <span class="equation">&#x03b2; = 17.6262</span>.
+        </p>
+        <p>
+        </p>
+        <p>
+            Computing the correlation between log(income) and age at first conception,
+            I get 0.1471. This is not a strong correlation, but it warrants further
+            investigation, considering I have ignored income in my calculations thus
+            far.
+        </p>
+        <h3>
+            Multiple linear regression to account for income
+        </h3>
+        <p>
+            The age at first conception probably depends on multiple factors, and
+            by modeling it only in terms of whether or not a woman had birth control
+            education, I am ignoring the potential correlation between income and birth
+            control education. It is possible, for example, that women from lower income
+            families have a lower likelihood of having birth control education than
+            those from higher income families, and that women from lower income families
+            also have a higher likelihood of becoming pregnant at an earlier age due
+            to other factors. In order to insure that birth control education actually
+            does cause the observed correlation between it and age at first conception,
+            I need to find the link between income, birth control education, and age
+            at first conception.
+        </p>
+        <p>
+        </p>
+        <p>
+            Here are three equations for linear regressions:
+        </p>
+        <p>
+            In the following, bc is a Boolean value that is 1 if the woman had birth
+            control education and 0 if not, and <em>log(income)</em> is a value corresponding
+            to the natural log of the income of the woman's family.
+        </p>
+        <ol start="1">
+            <li>
+                age at first conception = &#x03b2;0 + &#x03b2;1 * bc
+            </li>
+            <li>
+                age at first conception = &#x03b2;0 + &#x03b2;1 * log(income)
+            </li>
+            <li>
+                age at first conception = &#x03b2;0 + &#x03b2;1 * log(income) + &#x03b2;2 * bc
+            </li>
+        </ol>
+        <p>
+        </p>
+        <p>
+            I minimized the sum of the squared residuals, and found the coefficients
+            under each of these equations:
+        </p>
+        <p>
+        </p>
+        <p>
+            Equation 1:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Coefficient
+                    </td>
+                    <td>
+                        Estimate
+                    </td>
+                    <td>
+                        Std. Error
+                    </td>
+                    <td>
+                        t value
+                    </td>
+                    <td>
+                        Pr(&gt;|t|)
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        &#x03b2;0&mdash;intercept
+                    </td>
+                    <td>
+                        17.9140
+                    </td>
+                    <td>
+                        0.1315
+                    </td>
+                    <td>
+                        136.216
+                    </td>
+                    <td>
+                        &lt; 2e-16
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#x03b2;1&mdash;bc
+                    </td>
+                    <td>
+                        0.5430
+                    </td>
+                    <td>
+                        0.1567
+                    </td>
+                    <td>
+                        3.465
+                    </td>
+                    <td>
+                        0.000557
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            Equation 2:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Coefficient
+                    </td>
+                    <td>
+                        Estimate
+                    </td>
+                    <td>
+                        Std. Error
+                    </td>
+                    <td>
+                        t value
+                    </td>
+                    <td>
+                        Pr(&gt;|t|)
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        &#x03b2;0&mdash;intercept
+                    </td>
+                    <td>
+                        15.02903
+                    </td>
+                    <td>
+                        0.75598
+                    </td>
+                    <td>
+                        19.880
+                    </td>
+                    <td>
+                        &lt; 2e-16
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#x03b2;1&mdash;log(income)
+                    </td>
+                    <td>
+                        0.33550
+                    </td>
+                    <td>
+                        0.07728
+                    </td>
+                    <td>
+                        4.341
+                    </td>
+                    <td>
+                        1.59e-05
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+        </p>
+        <p>
+            Equation 3:
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Coefficient
+                    </td>
+                    <td>
+                        Estimate
+                    </td>
+                    <td>
+                        Std. Error
+                    </td>
+                    <td>
+                        t value
+                    </td>
+                    <td>
+                        Pr(&gt;|t|)
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        &#x03b2;0&mdash;intercept
+                    </td>
+                    <td>
+                        14.7766
+                    </td>
+                    <td>
+                        0.7554
+                    </td>
+                    <td>
+                        19.562
+                    </td>
+                    <td>
+                        &lt; 2e-16
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#x03b2;1&mdash;log(income)
+                    </td>
+                    <td>
+                        0.3242
+                    </td>
+                    <td>
+                        0.0769
+                    </td>
+                    <td>
+                        4.216
+                    </td>
+                    <td>
+                        2.75e-05
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &#x03b2;2&mdash;bc
+                    </td>
+                    <td>
+                        0.5140
+                    </td>
+                    <td>
+                        0.1553
+                    </td>
+                    <td>
+                        3.310
+                    </td>
+                    <td>
+                        0.000973
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+        </p>
+        <p>
+            With all three variables, both income and bc taken into account, the effect
+            of bc smaller than when only bc is taken into account, and also less statistically
+            significant, however bc does not change enough to warrant throwing it out.
+            It is still statistically significant, with a p-value of around 0.001 no
+            matter whether or not income is taken into account. Women who have birth
+            control education are likely to get pregnant later than women who have
+            no birth control education, and women whose families have higher incomes
+            are also likely to get pregnant later than women who have lower income
+            families.
+        </p>
+        <h3>
+            Oversampling in the NSFG
+        </h3>
+        <p>
+            The NSFG survey oversampled Blacks, Hispanics and women ages 15-24.<sup><a href="#NSFG_guide">[4]</a></sup> I
+            am only studying women ages 15-24, so the oversampling for young women
+            doesn't need to be taken into account; I simply will not be able to predict
+            anything for women over 24 and do not attempt to do so. In order to make
+            predictions based on my data for all young women in the US, however, I
+            would need to account for the oversampling of Blacks and Hispanics by using
+            Bayesian estimation. I would need to find the correlation between race
+            and age of first pregnancy, and then change my distribution according to
+            the actual fraction of each race in the US, as compared to the fraction
+            of each race as represented by the data. In the interests of time, I have
+            not corrected for oversampling.
+        </p>
+        <h2>
+            Conclusion
+        </h2>
+        <p>
+            There is a correlation between birth control ed and age at first conception.
+            Even when income is taken into account, the p-value of the null hypothesis
+            (the differences in the distribution of ages of first conception is due
+            to chance) is close to 0.001. In other words, given the evidence that a
+            woman has had birth control education, her first pregnancy has a likelihood
+            of coming after that of another woman who has not had birth control education.
+            In addition, the effect of abstinence only education on age at first conception
+            was proven to be statistically insignificant (p-value 0.991). All types
+            of sex education had statistically insignificant effects on wantedness
+            and number of pregnancies.
+        </p>
+        <h2>
+            Sources
+        </h2>
+
+<ol>
+        <li><p id="abst_only">
+            Pamela K. Kohler, Lisa E. Manhart, William E. Lafferty, Abstinence-Only
+            and Comprehensive Sex Education and the Initiation of Sexual Activity and
+            Teen Pregnancy, Journal of Adolescent Health, Volume 42, Issue 4, April
+            2008, Pages 344-351, ISSN 1054-139X, 10.1016/j.jadohealth.2007.08.026.
+            <a href="">(http://www.sciencedirect.com/science/article/pii/S1054139X07004260)</a>
+        </p></li>
+
+        <li><p id="NSFG">
+            U.S. Department of Health and Human Services, National Center for
+            Health Statistics, National Survey on Family Growth, 2006-2010,
+            <a href="http://www.cdc.gov/nchs/nsfg.htm">http://www.cdc.gov/nchs/nsfg.htm</a>
+        </p></li>
+
+        <li><p id="wikipedia">
+            Wikipedia: Regression Analysis,
+            <a href="http://en.wikipedia.org/wiki/Regression_analysis">http://en.wikipedia.org/wiki/Regression_analysis</a>
+        </p></li>
+
+        <li><p id="NSFG_guide">
+            2006-2010 National Survey of Family Growth User's Guide
+            <a href="http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf">http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf</a>
+        </p></li>
+
+        <li><p id="downey">
+            Allen Downey, professor at Franklin W. Olin College of Engineering
+        </p></li>
+</ol>
+        </article>
+    </body>
+
+</html>
