@@ -77,7 +77,7 @@ mobile
     }
 }
 
-@media screen and (max-width: 46em) and (max-height: 26em) {
+@media screen and (max-width: 46em) and (max-height: 36em) {
     header{padding:0.5em 2em;-webkit-transition: padding .2s;}
     #contact {padding:0;position:static;margin:0;font-size:0.9em;}
     #contact li {margin-right:0;}
