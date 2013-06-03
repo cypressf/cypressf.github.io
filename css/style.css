@@ -12,7 +12,7 @@ section > h1, header h1{ font: 3em 'Coustard', serif; -webkit-transition: font-s
 header, footer, #main{ margin:0 auto; max-width:66em; }
 header { padding: 1em 2em }
 footer { padding: 0 2em }
-#main{padding:0 2em;}
+#main{padding:0 2em;-webkit-transition: padding .2s;}
 #contact{list-style:none;-webkit-transition: margin .2s, padding .2s;}
 
 section{ float:left; padding:1em; margin:1em; max-width:18em; }
@@ -26,6 +26,11 @@ article, section {-webkit-transition: margin .2s, padding .2s;}
 /*============
 mobile
 =============*/
+
+/*@media screen and (max-width: 73em) {
+    article, section{margin:0;padding-top:1em; padding-bottom:1em;-webkit-transition: margin .2s, padding .2s;}
+    section {margin:0;}
+}*/
 
 @media screen and (max-width: 40em) {
     section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
@@ -46,7 +51,7 @@ mobile
 	footer ul#online li{float:none}
 }
 
-@media screen and (max-height: 26em) {
+@media screen and (max-height: 36em) {
     section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
     p { margin-bottom: 0.5em; -webkit-transition: margin .2s;}
     article{margin:0;padding:1em 0}
