@@ -33,7 +33,7 @@ mobile
 }*/
 
 @media screen and (max-width: 40em) {
-    section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
+    section > h1, header h1{ font-size: 1.6em; -webkit-transition: font-size .2s; }
     p { margin-bottom: 0.5em; -webkit-transition: margin .2s;}
     article, section{margin:0;padding-top:1em; padding-bottom:1em;-webkit-transition: margin .2s, padding .2s;}
     section {margin:0 1em;}
@@ -42,7 +42,7 @@ mobile
 }
 
 @media screen and (max-width: 26em) {
-	section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
+	section > h1, header h1{ font-size: 1.6em; -webkit-transition: font-size .2s; }
 	p { margin-bottom: 0.5em; }
 	article, section{margin:0;padding:1em 0}
 	section ul li { margin-left: 1em; }
@@ -52,7 +52,7 @@ mobile
 }
 
 @media screen and (max-height: 36em) {
-    section > h1, header h1{ font-size: 2em; -webkit-transition: font-size .2s; }
+    section > h1, header h1{ font-size: 1.6em; -webkit-transition: font-size .2s; }
     p { margin-bottom: 0.5em; -webkit-transition: margin .2s;}
     article{margin:0;padding:1em 0}
     header h1{
