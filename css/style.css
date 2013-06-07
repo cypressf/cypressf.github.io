@@ -13,7 +13,6 @@ header, footer, #main{ margin:0 auto; max-width:66em; }
 header { padding: 1em 2em }
 footer { padding: 0 2em }
 #main{padding:0 2em;-webkit-transition: padding .2s;}
-#contact{list-style:none;-webkit-transition: margin .2s, padding .2s;}
 
 section{ float:left; padding:1em; margin:1em; max-width:18em; }
 
@@ -46,7 +45,6 @@ mobile
 	p { margin-bottom: 0.5em; }
 	article, section{margin:0;padding:1em 0}
 	section ul li { margin-left: 1em; }
-	#contact { margin:0; padding:0;font-size:0.8em;-webkit-transition: margin .2s, padding .2s;}
 	footer { padding:0;}
 	footer ul#online li{float:none}
 }
@@ -59,26 +57,11 @@ mobile
         margin:0;
         padding:0;
     }
-    #contact {
-        position:absolute;
-        top:0;
-        margin:0;
-        margin-left:23em;
-        font-size:0.9em;
-        padding:0.5em 1.5em;
-        line-height:1em;
-        height:2em;
-    }
     header {
         padding:0 2em;-webkit-transition: padding .2s;
-    }
-    #contact li {
-        margin-right:1em;
     }
 }
 
 @media screen and (max-width: 46em) and (max-height: 36em) {
     header{padding:0.5em 2em;-webkit-transition: padding .2s;}
-    #contact {padding:0;position:static;margin:0;font-size:0.9em;}
-    #contact li {margin-right:0;}
 }
