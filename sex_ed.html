@@ -1,75 +1,91 @@
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Investigation of Sex Education and Pregnancy rates</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            article {
-                max-width:40em;
-                margin:0 auto;
-                font-family:sans-serif;
-                line-height: 1.6;
-                font-size:0.8em;
-                color:#0f2300;
-                overflow-wrap:break-word;
-            }
-            tr {
-                border-top:1px solid #c2cfb9;
-            }
-            table {
-                font-size:inherit;
-                padding:1em;
-                box-shadow:inset 0 0 8px #c2cfb9;
-                color:#194000;
-                background:#e4e8e2;
-                border-collapse: collapse;
-                -webkit-column-span:all;
-                max-width:40em;
-            }
-            thead tr{
-                font-weight:bold;
-                border-top:none;
-                border-bottom:1px solid #c2cfb9;
-            }
-            table tr:first-child {
-                border-top:none;
-            }
-            td {
-                padding:0.5em 0.5em;
-            }
-            th {
-                padding:0.5em;
-            }
-            h1, h2, h3{
-                margin-bottom:0;
-            }
-            h2 {
-                margin-top:2em;
-            }
-            h2+p, h3+p {
-                margin-top:0;
-            }
-            header h1 {
-                margin-bottom:0;
-            }
-            header p{
-                margin-top:0;
-            }
-            img.lower {
-                margin-bottom:-1.2em;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <article id="sex_ed">
+
+<head>
+    <meta charset="utf-8">
+    <title>Investigation of Sex Education and Pregnancy rates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        article {
+            max-width: 40em;
+            margin: 0 auto;
+            font-family: sans-serif;
+            line-height: 1.6;
+            font-size: 0.8em;
+            color: #0f2300;
+            overflow-wrap: break-word;
+        }
+
+        tr {
+            border-top: 1px solid #c2cfb9;
+        }
+
+        table {
+            font-size: inherit;
+            padding: 1em;
+            box-shadow: inset 0 0 8px #c2cfb9;
+            color: #194000;
+            background: #e4e8e2;
+            border-collapse: collapse;
+            -webkit-column-span: all;
+            max-width: 40em;
+        }
+
+        thead tr {
+            font-weight: bold;
+            border-top: none;
+            border-bottom: 1px solid #c2cfb9;
+        }
+
+        table tr:first-child {
+            border-top: none;
+        }
+
+        td {
+            padding: 0.5em 0.5em;
+        }
+
+        th {
+            padding: 0.5em;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            margin-top: 2em;
+        }
+
+        h2+p,
+        h3+p {
+            margin-top: 0;
+        }
+
+        header h1 {
+            margin-bottom: 0;
+        }
+
+        header p {
+            margin-top: 0;
+        }
+
+        img.lower {
+            margin-bottom: -1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <article id="sex_ed">
         <header>
-        <h1>
-            Investigation of Sex Education and Pregnancy rates
-        </h1>
-        <p>
-            by Cypress Frankenfeld 2011-10-25
-        </p>
+            <h1>
+                Investigation of Sex Education and Pregnancy rates
+            </h1>
+            <p>
+                by Cypress Frankenfeld 2011-10-25
+            </p>
         </header>
 
         <h2 id="introduction">
@@ -79,7 +95,8 @@
             Studies have been done on the efficacy of abstinence-only sex education
             that conclude that abstinence-only sex ed has no effect on teen pregnancy
             rates. Additionally, some studies have concluded that comprehensive sex
-            ed reduces the rates of teen pregnancy.<sup><a href="#abst_only">[1]</a></sup> I would like to be able to quantify
+            ed reduces the rates of teen pregnancy.<sup><a href="#abst_only">[1]</a></sup> I would like to be able to
+            quantify
             the effect of sex ed on teen pregnancy, or unwanted pregnancy. Thus, I
             enter this project with the goal of investigating the effects of abstinence-only
             sex education and comprehensive sex education on pregnancy rates, unwanted
@@ -259,7 +276,7 @@
                     </td>
                 </tr>
             </thead>
-                <tbody>
+            <tbody>
 
                 <tr>
                     <th>
@@ -328,7 +345,7 @@
         </p>
         <p>
             For the chi-square test, I will use two cells: <em>wanted pregnancies</em> and <em>unwanted
-            pregnancies</em>. Based on the pregnancy pool, I get the following expected
+                pregnancies</em>. Based on the pregnancy pool, I get the following expected
             and observed values for women who had birth control education and women
             who did not have birth control education.
         </p>
@@ -353,7 +370,7 @@
                     </td>
                 </tr>
             </thead>
-                <tbody>
+            <tbody>
                 <tr>
                     <th>
                         Birth Control Ed
@@ -445,7 +462,7 @@
                     </td>
                 </tr>
             </thead>
-                <tbody>
+            <tbody>
 
                 <tr>
                     <th>
@@ -627,7 +644,7 @@
             indicates that the null hypothesis is unlikely, and that the difference
             in distributions is statistically significant.
         </p>
-        
+
         <h3 id="abstinence_significance">
             Does abstinence only education have a statistically significant effect
             on first pregnancy age?
@@ -701,7 +718,8 @@
         </p>
         <p>
             In order to find the linear regression that matched the scatter plot,
-            I found the parameters for <span class="equation">&#x0233; = &#x03b1; + &#x03b2;x&#x0304;</span> to be  <span class="equation">&#x03b1; = 0.40816</span> and <span class="equation">&#x03b2; = 17.6262</span>.
+            I found the parameters for <span class="equation">&#x0233; = &#x03b1; + &#x03b2;x&#x0304;</span> to be <span
+                class="equation">&#x03b1; = 0.40816</span> and <span class="equation">&#x03b2; = 17.6262</span>.
         </p>
         <p>
         </p>
@@ -976,12 +994,13 @@
             Oversampling in the NSFG
         </h3>
         <p>
-            The NSFG survey oversampled Blacks, Hispanics and women ages 15-24.<sup><a href="#NSFG_guide">[4]</a></sup> I
+            The NSFG survey oversampled Black women, Hispanic women, and women ages 15-24.<sup><a
+                    href="#NSFG_guide">[4]</a></sup> I
             am only studying women ages 15-24, so the oversampling for young women
             doesn't need to be taken into account; I simply will not be able to predict
             anything for women over 24 and do not attempt to do so. In order to make
             predictions based on my data for all young women in the US, however, I
-            would need to account for the oversampling of Blacks and Hispanics by using
+            would need to account for the oversampling of Black women and Hispanic women by using
             Bayesian estimation. I would need to find the correlation between race
             and age of first pregnancy, and then change my distribution according to
             the actual fraction of each race in the US, as compared to the fraction
@@ -1007,36 +1026,48 @@
             Sources
         </h2>
 
-<ol>
-        <li><p id="abst_only">
-            Pamela K. Kohler, Lisa E. Manhart, William E. Lafferty, Abstinence-Only
-            and Comprehensive Sex Education and the Initiation of Sexual Activity and
-            Teen Pregnancy, Journal of Adolescent Health, Volume 42, Issue 4, April
-            2008, Pages 344-351, ISSN 1054-139X, 10.1016/j.jadohealth.2007.08.026.
-            <a href="">(http://www.sciencedirect.com/science/article/pii/S1054139X07004260)</a>
-        </p></li>
+        <ol>
+            <li>
+                <p id="abst_only">
+                    Pamela K. Kohler, Lisa E. Manhart, William E. Lafferty, Abstinence-Only
+                    and Comprehensive Sex Education and the Initiation of Sexual Activity and
+                    Teen Pregnancy, Journal of Adolescent Health, Volume 42, Issue 4, April
+                    2008, Pages 344-351, ISSN 1054-139X, 10.1016/j.jadohealth.2007.08.026.
+                    <a href="">(http://www.sciencedirect.com/science/article/pii/S1054139X07004260)</a>
+                </p>
+            </li>
 
-        <li><p id="NSFG">
-            U.S. Department of Health and Human Services, National Center for
-            Health Statistics, National Survey on Family Growth, 2006-2010,
-            <a href="http://www.cdc.gov/nchs/nsfg.htm">http://www.cdc.gov/nchs/nsfg.htm</a>
-        </p></li>
+            <li>
+                <p id="NSFG">
+                    U.S. Department of Health and Human Services, National Center for
+                    Health Statistics, National Survey on Family Growth, 2006-2010,
+                    <a href="http://www.cdc.gov/nchs/nsfg.htm">http://www.cdc.gov/nchs/nsfg.htm</a>
+                </p>
+            </li>
 
-        <li><p id="wikipedia">
-            Wikipedia: Regression Analysis,
-            <a href="http://en.wikipedia.org/wiki/Regression_analysis">http://en.wikipedia.org/wiki/Regression_analysis</a>
-        </p></li>
+            <li>
+                <p id="wikipedia">
+                    Wikipedia: Regression Analysis,
+                    <a
+                        href="http://en.wikipedia.org/wiki/Regression_analysis">http://en.wikipedia.org/wiki/Regression_analysis</a>
+                </p>
+            </li>
 
-        <li><p id="NSFG_guide">
-            2006-2010 National Survey of Family Growth User's Guide
-            <a href="http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf">http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf</a>
-        </p></li>
+            <li>
+                <p id="NSFG_guide">
+                    2006-2010 National Survey of Family Growth User's Guide
+                    <a
+                        href="http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf">http://www.cdc.gov/nchs/data/nsfg/NSFG_2006-2010_UserGuide_MainText.pdf</a>
+                </p>
+            </li>
 
-        <li><p id="downey">
-            Allen Downey, professor at Franklin W. Olin College of Engineering
-        </p></li>
-</ol>
-        </article>
-    </body>
+            <li>
+                <p id="downey">
+                    Allen Downey, professor at Franklin W. Olin College of Engineering
+                </p>
+            </li>
+        </ol>
+    </article>
+</body>
 
 </html>
