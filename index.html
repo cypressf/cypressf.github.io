@@ -51,6 +51,22 @@
         font-size: 3em;
         transition: font-size 0.2s;
       }
+      article ul {
+        padding: 0;
+      }
+      article li {
+        list-style: none;
+      }
+      article li a {
+        display: block;
+        line-height: 48px;
+        padding: 0;
+        margin: 0;
+      }
+
+      article li:not(:first-child) a {
+        border-top: 1px solid rgba(238, 238, 238, 0.721);
+      }
 
       header,
       footer,
@@ -247,6 +263,9 @@
           background: #495874;
           color: rgba(255, 255, 255, 0.721);
           text-shadow: -1px -1px #4b5975;
+        }
+        article li:not(:first-child) a {
+          border-color: #252831;
         }
       }
     </style>
