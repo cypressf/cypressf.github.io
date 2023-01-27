@@ -76,6 +76,7 @@
       }
       header {
         padding: 1em 2em;
+        transition: padding 0.2s;
       }
       footer {
         padding: 0 2em;
@@ -126,7 +127,7 @@
         }
       }
 
-      @media screen and (max-width: 40em) {
+      @media screen and (max-width: 46em) {
         section > h1,
         header h1 {
           font-size: 1.6em;
@@ -161,27 +162,25 @@
           font-size: 1.6em;
           transition: font-size 0.2s;
         }
+        article h1 {
+          padding-bottom: 0;
+        }
         p {
           margin-bottom: 0.5em;
+          margin-top: 0.5em;
           transition: margin 0.2s;
         }
         article {
           margin: 0;
-          padding: 1em 0;
+          padding: 0.5em 0;
         }
         header h1 {
           margin: 0;
           padding: 0;
         }
         header {
-          padding: 0.5em 2em;
-          transition: padding 0.2s;
-        }
-      }
-
-      @media screen and (max-width: 46em) and (max-height: 36em) {
-        header {
-          padding: 0.5em 2em;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
           transition: padding 0.2s;
         }
       }
