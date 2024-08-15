@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>HTML and CSS can do that?!</title>
+    <style>
+      @view-transition {
+        navigation: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML can do <em>that?!</em></h1>
+
+    <h2>Accordion Views</h2>
+    <details name="produce">
+      <summary>Peaches</summary>
+      $12 for a dozen. Fresh-picked.
+    </details>
+    <details name="produce">
+      <summary>Cream</summary>
+      $3 per gallon.
+    </details>
+
+    <h2>Dropdown with autocomplete</h2>
+    <label for="ice-cream-choice">Choose a flavor:</label>
+    <input
+      list="ice-cream-flavors"
+      id="ice-cream-choice"
+      name="ice-cream-choice"
+    />
+
+    <datalist id="ice-cream-flavors">
+      <option value="Chocolate"></option>
+      <option value="Coconut"></option>
+      <option value="Mint"></option>
+      <option value="Strawberry"></option>
+      <option value="Vanilla"></option>
+    </datalist>
+
+    <h2>Popovers</h2>
+    <button popovertarget="popover">Open</button>
+    <p popover id="popover">
+      Interaction outside this popover is allowed. Clicking anywhere else will
+      close it.
+    </p>
+
+    <h2>Modal Dialogs</h2>
+    <button onclick="document.querySelector('dialog').showModal()">Open</button>
+    <dialog>
+      Interaction outside of this dialog is blocked. Press <kbd>esc</kbd> to
+      close
+      <form method="dialog"><button>Close</button></form>
+    </dialog>
+
+    <p>
+      I cheated a little on this one. Technically you need to use javascript to
+      open the dialog, but the dialog itself is pure HTML and all interactions
+      to close it are as well.
+    </p>
+
+    <h1>CSS can do <em>that?!</em></h1>
+
+    <h2>View Transitions</h2>
+    <a href="view-transition.html">Go to view-transition.html</a>
+  </body>
+</html>
