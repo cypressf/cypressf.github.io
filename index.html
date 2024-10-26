@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="#495874" />
     <link rel="canonical" href="https://cypressf.com" />
     <meta
@@ -63,11 +64,6 @@
         padding: 0;
         margin: 0;
       }
-
-      article li:not(:first-child) a {
-        border-top: 1px solid rgba(238, 238, 238, 0.721);
-      }
-
       header,
       footer,
       main {
@@ -85,14 +81,12 @@
         padding: 0 2em;
         transition: padding 0.2s;
       }
-
       section {
         float: left;
         padding: 1em;
         margin: 1em;
         max-width: 22em;
       }
-
       footer {
         clear: both;
       }
@@ -185,63 +179,46 @@
         }
       }
 
+      html {
+        --background: light-dark(#fff, #11151d);
+        --text: light-dark(#3a475d, rgba(255, 255, 255, 0.742));
+        --link-color: light-dark(#236226, #7d94c5);
+        --section-header: light-dark(#485671, #6679a0);
+        --header-footer-background: light-dark(#495874, #495874);
+        --header-footer-text: light-dark(#fff, rgba(255, 255, 255, 0.721));
+        --header-footer-shadow: light-dark(#3d4c6e, #4b5975);
+        --article-border: light-dark(#c4d5ff, #2a2e37);
+        --list-item-border: light-dark(rgba(238, 238, 238, 0.721), #252831);
+      }
       body {
-        background: #fff;
-        color: #3a475d;
+        background: var(--background);
+        color: var(--text);
       }
       a,
       article h1 a {
-        color: #236226;
+        color: var(--link-color);
       }
       a {
         font-weight: bold;
       }
       section > h1 {
-        color: #485671;
+        color: var(--section-header);
       }
       article,
       article h1 {
-        border-color: #c4d5ff;
+        border-color: var(--article-border);
+      }
+      article li:not(:first-child) a {
+        border-top: 1px solid var(--list-item-border);
       }
       header,
       header h1,
       header a,
       footer,
       footer a {
-        background: #495874;
-        color: #fff;
-        text-shadow: -1px -1px #3d4c6e;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #11151d;
-          color: rgba(255, 255, 255, 0.742);
-        }
-        article h1 a {
-          color: #7d94c5;
-        }
-        a {
-          color: #8fa3cc;
-        }
-        section > h1 {
-          color: #6679a0;
-        }
-        article,
-        article h1 {
-          border-color: #2a2e37;
-        }
-        header,
-        header h1,
-        header a,
-        footer,
-        footer a {
-          background: #495874;
-          color: rgba(255, 255, 255, 0.721);
-          text-shadow: -1px -1px #4b5975;
-        }
-        article li:not(:first-child) a {
-          border-color: #252831;
-        }
+        background: var(--header-footer-background);
+        color: var(--header-footer-text);
+        text-shadow: -1px -1px var(--header-footer-shadow);
       }
     </style>
   </head>
