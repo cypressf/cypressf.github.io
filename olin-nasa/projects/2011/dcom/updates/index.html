@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital X-ray Communications</title>
+    <link rel="stylesheet" href="/olin-nasa/screen.css">
+    <link rel="shortcut icon" href="/olin-nasa/favicon.ico">
+</head>
+
+<body>
+    <header>
+
+        <a href="http://www.olin.edu/" title="Franklin W. Olin College of Engineering" id="logo_olin">
+            <img src="/olin-nasa/olin.png"/>
+        </a>
+        <a href="http://www.nasa.gov/" title="National Aeronautics and Space Administration" id="logo_nasa">
+            <img src="/olin-nasa/nasa.png"/>
+        </a>
+
+        <hgroup>
+            <h1>Digital X-Ray</h1>
+            <h2>Signal Transmission</h2>
+        </hgroup>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="http://nasa.olin.edu/" id="home">Home</a>
+                </li>
+                <li>
+                    <a href="../overview" title="Overview of the system">Overview</a>
+                </li>
+                <li>
+                    <a href="../background" title="Background information about the MXS">Background</a>
+                </li>
+                <li>
+                    <a href="./" title="Daily Updates" id="active">Updates</a>
+                </li>
+                <li>
+                    <a href="../software" title="Details about the Software">Software</a>
+                </li>
+                <li>
+                    <a href="../hardware" title="Details about the Hardware">Hardware</a>
+                </li>
+                <li>
+                    <a href="../team" title="About the team members">Team</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main">
+        <article>
+            <h1>Documentation</h1>
+            <li>
+                <a href="FinalStatusReport.pdf">Final Report</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/document/pub?id=1PVsw2MdSF_NkYDgMHKKnzlz7lbQb5AO587gDNi0Mr0o">Work Breakdown Structure</a>
+            </li>
+            <li>
+                <a href="https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&amp;hl=en_US&amp;key=0AsX8lwfossYQdGNBazhubGRPZ1ZuUGc5OVM3MDcwcHc&amp;single=true&amp;gid=0&amp;output=html">PERT</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dfzzrgxw_29hccnpzhs">Preliminary Design Review Presentation</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=ddm23x3c_35hjmrwvdx">Olin College Midsummer Lunch Presentation</a>
+            </li>
+        </article>
+
+        <article id="2011-07-25">
+            <header>
+                <time datetime="2011-07-25" pubdate>July 25, 2011</time>
+                <h1>
+                    <a href="#2011-07-25">July 25, 2011</a>
+                </h1>
+            </header>
+            <p>Since we've recieved the MXS in the mail, our team has faced many ups and downs. I'll go with the bad news first. The MXS has a problem that the power source for the 
+            detector, unless it is turned on its side (which is our fix for now), produces an odd sine wave with the pulses in that sine wave. Our team is concerned that if we make 
+            a system that works when the detector power source is turned on its side, it won't be applicable to other situations. Also, we're still struggeling to get our peak and 
+            hold circuit to work, but we are definitely making progress. We also discovered a flaw in the LED driver circuit, causing there to be a need for a PCB reorder. 
+            The last piece of bad news is that we're running out of time. We're looking for possible deliverable solutions if we don't get this MXS output circuit completed.</p>
+            <p>On a more positive note we were able, just yesterday, to send a for loop of 'a's through one computer, through the MXS, to the second computer. We recieved 
+            "?aayx?c:a@?aa?a42a??aP_1a?aa?eT%a" as a result through the chat client, which is awesome! We're sending a signal through the MXS and having it sucessfully trasmit 
+            about 50% of the correct characters we send it. We're also trying out some different circuits: peak and hold with a diode instead of a transistor, a monostable 
+            multivibrator, and making our own schmitt trigger so we can contol the threshold values. We have also designed ordered a new PCB (it looks pretty darn good if I do say 
+            so myself). We've also made sure that the PCB will fit nicely into the box that we have bought for it.</p>
+            <p>Today, we also completed construction of a 'proof-of-concept' structure where we transmit signals from the first computer to a red LED to a photodiode to the second 
+            computer. We sucessfully were able to chat using the chat client. So even if we do not have the MXS output circuit finished, we can at least show that we have everything 
+            else working. </p>
+        </article>
+
+        <article id="2011-07-21">
+            <header>
+                <time datetime="2011-07-21" pubdate>July 21, 2011</time>
+                <h1>
+                    <a href="#2011-07-21">July 21, 2011</a>
+                </h1>
+            </header>
+            <p>Today has been very exciting. The most thrilling thing to happen is that we recieved the replacement MXS in the mail!! Woot!!! We have begun testing with it, it's 
+            looking promising!! Sasha and Sarah also gave the Olin College Brownbag Lunch Presentation today, our team thinks that it went well. We even recieved some feedback 
+            from a fellow student that we plan on adding to our final report as another idea for future ideas for how to make the digital transmission system better.</p>
+            <p>Back to the MXS testing, as shown below the MXS is giving us a reasonable + and - output.</p>
+            <div class="center">
+                <figure>
+                    <image class="center" src="../01_raw_MXS_output.jpg" width="500">
+                        <figcaption style="width:500px">This image displays the LED input pulses (yellow), MXS + output (purple), and MXS - output (blue).</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article id="2011-07-19">
+            <header>
+                <time datetime="2011-07-19" pubdate>July 19, 2011</time>
+                <h1>
+                    <a href="#2011-07-19">July 19, 2011</a>
+                </h1>
+            </header>
+            <p>Over the weekend, Jessica and Sarah did some circuitry analysis on the Schmitt trigger. They constructed a simple circuit to convert a -5 to 5 V signal to a 0 to 5 V 
+            signal, and also can turn any signal centered at 0 to a -5 to 5 volt signal. So our team now has the ability to turn any signal centered at 0 into a signal the Schmitt 
+            trigger will recieve as an input. Sasha also did some work this weekend. Unfortunately, she discovered that the MXS is no longer working like it used to. On Monday, 
+            Keith confirmed that the vacuum seal of the MXS is broken and is sending us a new MXS.</p>
+            <p>Since we couldn't do any testing with the MXS today, Jessica worked on the website and ordered solderless breadboards, components, and boxes for our final circuit deliverables. 
+            Sarah worked on documentation and the upcoming Midsummer Lunch Presentation. Cypress worked on changing the software to have a higher overall bandwidth. He also worked 
+            with Sasha on preparing our circuits as best they could for testing on the MXS, which should hopefully arrive tomorrow!</p>
+        </article>
+
+        <article id="2011-07-15">
+            <header>
+                <time datetime="2011-07-15" pubdate>July 15, 2011</time>
+                <h1>
+                    <a href="#2011-07-15">July 15, 2011</a>
+                </h1>
+            </header>
+            <p>Yesterday, we recieved a lot of help from Professor Brad Minch (fun fact: has the same birthday as one of our team-members: Sarah Strohkorb). He suggested that we 
+            build a peak and hold detector. He thought that this would allow us to have square-wave looking signals at both 55 and 5.5 kHz. For the past two days our team has 
+            furiously been looking into how they work and how to make them work for the frequencies that we desire.</p>
+            <div class="center">
+                <figure>
+                    <image class="center" src="../Peak_and_hold_schematic.jpg" width="500">
+                        <figcaption style="width:500px">This figure displays the circuit schematic for the peak and hold detector we're looking at.</figcaption>
+                </figure>
+            </div>
+            <p>We found that changing the capacitor and resistor values alters the fall time after a peak is detected and held. We also discovered that using an op-amp with a 
+            higher slew rate increases the range of higher frequencies we can use the peak and hold detector for now. Right now, with the results that we have (figure below) 
+            we're hoping to make the 5.5 kHz signal look more like the 55 kHz signal. But our team is unsure at the moment if this peak and hold detector will work for such a 
+            large frequency range.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../Peak_and_hold_both.jpg" width="700">
+                        <figcaption style="width:700px">This figure depicts the MXS output (raw MXS output is dark blue) after being amplified and going through a peak and hold detector (cyan).</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article id="2011-07-13">
+            <header>
+                <time datetime="2011-07-13" pubdate>July 13, 2011</time>
+                <h1>
+                    <a href="#2011-07-13">July 13, 2011</a>
+                </h1>
+            </header>
+            <p>
+                Today, we found that using the RMS chip could definitely be useful. The RMS chip takes the 
+                <a href="http://en.wikipedia.org/wiki/Root_mean_square">root mean square</a>
+                 of the signal coming out of the MXS. This helps us detect a signal, even when it tends to drift to zero (see the leftmost graph below). The RMS chip basically multiplies the signal by itself, to get a positive voltage output, then takes the square root and averages the result. By doing so, any large AC wave is converted into a near constant high voltage, while any small amplitude AC wave is converted into a small amplitude voltage.
+            </p>
+            <div class="center">
+                <figure>
+                    <image class="center" src="../RMS_both_frequencies.jpg" width="700">
+                        <figcaption style="width:700px">This figure shows the output of the RMS chip for frequencies of both 5 and 50 kHz. The signal is also averaged 
+                        on the oscilloscope.</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article id="2011-07-12">
+            <header>
+                <time datetime="2011-07-12" pubdate>July 12, 2011</time>
+                <h1>
+                    <a href="#2011-07-12">July 12, 2011</a>
+                </h1>
+            </header>
+            <p>After our success yesterday, of course we would come up with some problems... We found that we could not add an amplifier after 
+            the filter, it made the signal look completely different, smaller, and just overall odd. In order to attempt to isolate each 
+            component of the system, we added a voltage follower using a TL081 op-amp after every component (amplifiers, filters) which cleared 
+            up our problem of being unable to alter the output of the filter signal. We also discovered a new problem. Until now, we have only been concerned 
+            with 50 kHz frequency signals, but in reality we will be dealing with pulses that are larger than 50 kHz square wave input signals to 
+            the MXS. The following figure shows the difference of what our circuitry can do for 50 kHz and a 5 kHz input frequencies.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../Both_frequencies.jpg" width="700">
+                        <figcaption style="width:700px">This figure displays the results of our amplification and filtering of both a 5 kHz frequency square 
+                        wave and a 50 kHz frequency square wave input to the MXS. We have designed our circuit for a 50 kHz square wave, not a 5 kHz square 
+                        wave.</figcaption>
+                </figure>
+            </div>
+
+            <p>In order to be able to have the MXS transmit both frequencies cleanly, we're going to have to search for a new approach, possibly 
+            root mean square. </p>
+        </article>
+
+        <article id="2011-07-11">
+            <header>
+                <time datetime="2011-07-11" pubdate>July 11, 2011</time>
+                <h1>
+                    <a href="#2011-07-011">July 11, 2011</a>
+                </h1>
+            </header>
+            <p>Today has been very productive. We think that we're very close to achieving a clean output signal. First of all, we believe 
+            that we have solved our filter problem! It's at least looking like our filter is filtering now:</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../Before_and_after.jpg" width="700">
+                        <figcaption style="width:700px">These scope outputs display a signal before and after being put into the third order Sallen-Key 
+                        low-pass filter with a cutoff frequency of about 270 kHz.</figcaption>
+                </figure>
+            </div>
+
+
+            Including amplification and filtering, our signal now looks like the following:
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../After_filter02.jpg" width="500">
+                        <figcaption style="width:500px">This image displays the very clean input signal to the MXS and the output signal that we have 
+                        amplified and filtered.</figcaption>
+                </figure>
+            </div>
+
+
+            Now, we need to amplify the output of our amplifier and filter and center the signal so that it is a 0 to 5 V square wave. 
+
+            Our other breakthrough today is we cleaned up the MXS output signal by using the MXS differential output, and sending both signals 
+            through an Instrumental Amplifier, as pictured below, we were able to achieve a cleaner output that we used to get the results that 
+            you see above. 
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../InAmpPic.jpg" width="500">
+                        <figcaption style="width:500px">The circuit schematic for the Instrumental Amplifier we are now using.</figcaption>
+                </figure>
+            </div>
+
+
+            We also finalized our design for our PCB for the current amplifier. 
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../PCBPic01.jpg" width="400">
+                        <figcaption style="width:400px">Our finalized PCB!</figcaption>
+                </figure>
+            </div>
+
+
+            We now just need to order connector parts for this PCB, actually order it, and possibly make a box for it, and we'll be good to go 
+            on that end of the MXS.
+
+            </p>
+        </article>
+
+        <article id="2011-07-08">
+            <header>
+                <time datetime="2011-07-08" pubdate>July 8, 2011</time>
+                <h1>
+                    <a href="#2011-07-08">July 8, 2011</a>
+                </h1>
+            </header>
+            <p>At our team meeting today, we decided that it would be best for our entire team to focus on the MXS signal clean-up 
+            circuit until it gets completed. We also decided to more specifically document every circuit that we test by making circuit 
+            diagrams in LTSpice, labeling the circuits themselves, and taking oscilloscope screen shots when we test them. Cypress 
+            started a software manual for the MXS digital communication demonstration for a live chat and file transfer. Our team is 
+            confident that we will be able to complete both demonstrations becasue we've tested that it works for a computer to MAX-232 
+            to MAX-232 to computer system. All we need to do to complete the demonstration is put our two circuits and MXS into the middle 
+            which are not possible yet due to the hold up with the post-MXS ciruit. As far as the post-MXS circuit today, we made progress 
+            in diagnosing the filter problems and with the RMS chip we purchased and are considering using. With the filter, we tested that 
+            the MXS signal does pass through the filter, but the filter does not actually visually 'filter' the signal as you can see below.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../Filter_reaction.jpg" width="700">
+                        <figcaption style="width:700px">These three oscilloscope pictures display what the input and output signals look like for the 
+                        Sallen-Key low-pass filter with a cutoff frequency of 2.7 MHz for the frequencies of 365kHz, 2.64MHz, and 5.33MHz. We see behavior 
+                        that we would expect for a filter, the signal become less recognisable and smaller in voltage amplitude as the frequency goes near 
+                        and above the cutoff frequency.</figcaption>
+                </figure>
+            </div>
+
+            <p>The problem with the filter is that it doesn't do what we had hoped. We were hoping that the filter would get rid of the fuzziness 
+            of the pulses. We noticed a 40MHz noise when we averaged a pulse signal, so we were thinking that the filter would get rid of that 
+            noise, but lo and behold, it's still here.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../MXS_Filter_Output4.jpg" width="400">
+                        <figcaption style="width:400px">This image displays the averaged 40MHz noise that I'm talking about above. Where does it come from? 
+                        I don't know.</figcaption>
+                </figure>
+            </div>
+
+            <p>What's also interesting is that there is no 40MHz signal that comes up when we do a FFT on the oscilloscope. In addition to the 
+            filter analysis we did today, we also looked into using a RMS chip to have the MXS signal have a minimum of zero by taking its 
+            absolute value as you can see below.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../RMS-trial1.png" width="400">
+                        <figcaption style="width:400px">This image shows what the RMS chip can do: take the absolute value the input signal.</figcaption>
+                </figure>
+            </div>
+
+            <p>Unfortunately, we have not been sucessful with using the RMS chip with the MXS. We think that the problem lies with the RMS chip 
+            not being made to work with high frequency signals. </p>
+        </article>
+
+        <article id="2011-07-07">
+            <header>
+                <time datetime="2011-07-07" pubdate>July 7, 2011</time>
+                <h1>
+                    <a href="#2011-07-07">July 7, 2011</a>
+                </h1>
+            </header>
+            <p>The past two days have been interesting. Yesterday, our team put together a system on one breadboard. The system
+             included two inverting amplifiers using the AD848s (op-amp high gain bandwith product), the 3rd order Sallen-Key 
+             low-pass filter, the envelope detector, then the Schmitt trigger. Unfortunately, the filter was not working with the MXS.
+              When we tested it out with a function generator and oscilloscope, it displayed the appropriate filtering behavior, 
+              but with the MXS, it displayed an output signal at 5V. Interesting... Today, we've been trying different approaches:
+              looking at transistor logic, RMS chips, and the system we currently have. Our team feels like they've hit somewhat
+              of a roadblock. We hope to find a way to clean up this signal soon. While not working on the circuit on the output
+              of the MXS, we also designed a PCB design for our current and voltage control for the LED control on the front-end
+              of the MXS. It's looking awesome.</p>
+        </article>
+
+        <article id="2011-07-05">
+            <header>
+                <time datetime="2011-07-05" pubdate>July 5, 2011</time>
+                <h1>
+                    <a href="#2011-07-05">July 5, 2011</a>
+                </h1>
+            </header>
+            <p>Right now, our critical path is the circuit that is cleaning up the signal after the MXS and making it look
+            like the input digital signal. Thankfully, we solved our op-amp problem. Now we know that we must use a minimum 
+            gain of 5 for them. We also were able to make the signal from the MXS output to not go below 0, using an envelope
+            detector. Unfortunately, our filter does not actually do anything right now because we set it to have a cutoff 
+            frequency that is too high. Tomorrow we will work on lowering the cutoff frequency of the filter and using a non-
+            inverting amplifier instead of an inverting amplifier. Thanks so much to Dr. Siddhartan Govindasamy!! He gave us 
+            some extremely useful tips today.</p>
+        </article>
+
+        <article id="2011-07-01">
+            <header>
+                <time datetime="2011-07-01" pubdate>July 1, 2011</time>
+                <h1>
+                    <a href="#2011-07-01">July 1, 2011</a>
+                </h1>
+            </header>
+            <p>Today has been slightly more mellow than most, maybe that's because our team gets distracted slightly by
+            Google+... who knows? But today definitly has been productive. Exciting: we now have the capabilities of sending
+            files via RS-232! Good work Cypress!! We also discovered that the reason that our op-amps
+            were acting kinda odd is because the resistors that we used had resistance values that were too high and we 
+            only today discovered the suggested inverting amplifier on the op-amp's datasheet for some other circuit 
+            schematic options. Our only new problem is that we discovered that our current and voltage control circuit for the 
+            LED needs some redesign due to the varying input voltages that it needs to be capable of recieving. Jessica and I 
+            additionally discovered that it would take 200V to kill a person, from finding out that it takes .2A to stop the heart
+            and the resistance of the human body (about 1k ohm). Yay Ohm's Law!</p>
+        </article>
+
+        <article id="2011-06-30">
+            <header>
+                <time datetime="2011-06-30" pubdate>June 30, 2011</time>
+                <h1>
+                    <a href="#2011-06-30">June 30, 2011</a>
+                </h1>
+            </header>
+            <p>We recieved the op-amps and low capacitance capacitors in the mail today!! Yay!! With these, we started 
+            construction on our two current ideas for low-pass filters and testing of the amplifier, using 4 of the 
+            op-amps we got today. The day was filled with highs and lows, at least for me. The amplifier ended up giving
+            one of the oddest clean but messy signal that we still haven't figured out. One of the filters works, which 
+            is exciting, it's just centered at -12V, so we need to figure out what's up with that. The other filter has
+            yet to be tested, but will be soon. It's such a relief to know that the filter is working at least, and by
+            working I mean making the signal look much cleaner (forgetting the centering issue). Hopefully all of our 
+            other problems will be worked out soon.</p>
+        </article>
+
+        <article id="2011-06-29">
+            <header>
+                <time datetime="2011-06-29" pubdate>June 29, 2011</time>
+                <h1>
+                    <a href="#2011-06-29">June 29, 2011</a>
+                </h1>
+            </header>
+            <p>Today, our team has been furiously making updates to the website, which is looking quite good if I don't 
+            say so myself. We have ordered capacitors for the two low pass filters that we're going to try in order
+            to transform the MXS output signal to a square wave that can be red by a computer. We should get them before
+            the weekend comes since we chose to get overnight UPS shipping. We also have started designing the PCB for 
+            our current and voltage control for the LED input into the MXS circuit. On an somewhat unrelated note, the 
+            weekly BBQ lunch was quite tasty, but not as amusing as the boys playing 'bumper cars' in the lab.</p>
+        </article>
+
+        <article id="2011-06-28">
+            <header>
+                <time datetime="2011-06-28" pubdate>June 28, 2011</time>
+                <h1>
+                    <a href="#2011-06-28">June 28, 2011</a>
+                </h1>
+            </header>
+            <p>We're starting daily updates, effective today! Our team has gone through quite the change of plans from
+            our beginning goals of sending video through the MXS using USB ports and cables. As of now, we have a 
+            computer to computer chat demo ready on the software side and a current and voltage LED driver circuit
+            controlling the input to the MXS. We're working on constructing the circuit on the output of the MXS. We
+            have an amplifier and a schmitt trigger, and are looking to build a low pass filter that will have a 
+            cutoff frequency of 27ish MHz. We talked to both Brad and Oscar today. They gave us suggestions for
+            our filters and how to better transfer the signal from the MXS to a breadboard or circuit. Also, today
+            our website is making some great progress!</p>
+        </article>
+
+        <article id="before">
+            <header>
+                <h1>
+                    <a href="#before">Prior Work</a>
+                </h1>
+            </header>
+            <p>Before we started our daily updates, we went through several different changes to our goal and implementation. The purpose of this entry is to summarize the events leading up to June 28 (the date of our first update).</p>
+
+            <p>Initially, we intended to use the MXS to stream video through X-ray communication. But we soon realized that such an ambitious task was out of the scope of our project, so we revised our goal. We toyed with the idea of using Ethernet or some other protocol to send digital data, but ultimately we settled on using RS232 to make an X-ray chat client or transmit files digitally via X-ray.</p>
+
+            <p>Even after establishing our goal, however, we ran into numerous problems that resulted in changes to our circuitry. For example, we built our first amplifier out of discrete components, believing it would give us the most flexibility in dealing with high-frequency signals. After consulting with professors (our usual inspiration for changing our plans) we decided to use an operational amplifier to simplify the circuit - as it turns out, all we have to do is get faster op-amps and the frequency won't really be a concern. For reference, our original amplifier circuit is shown below.</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../TransistorAmplifier.png">
+                        <figcaption style="width:700px">Amplifier built out of discrete components; no longer intended for use.</figcaption>
+                </figure>
+            </div>
+
+            <p>Another of our early tests combined an amplifier with a Schmitt trigger. That test first suggested to us that using a low-pass filter might be worthwhile after we got the following results:</p>
+
+            <div class="center">
+                <figure>
+                    <image class="center" src="../No_filter.png" height="300">
+                        <figcaption style="width:350px">By using an amplifier and Schmitt trigger on the signal output of the MXS, we achieved the results shown above, the raw MXS output
+                        signal in dark blue and the amplified and Schmitt triggered signal in light blue. Unfortunately, the square waves are not whole square waves and still have some 
+                        noise.</figcaption>
+                </figure>
+            </div>
+
+            <p>After showing these results to a few Olin professors, they suggested that we look into a low-pass filter. We then decided to try a Sallen-Key third order low-pass
+            filter. Sallen-Key third order low-pass filters average the effects of a first order low-pass fileter with a lower than desired cutoff frequency and a second order
+            low-pass filter with a higher than desired cutoff frequency. This effect is a sharp dropoff in output voltage to input voltage right around the desired cutoff frequency
+            as shown in the figure below.</p>
+
+            <div class="center">
+                <figure>
+                    <image src="../Sallen_key_all.png" width="700">
+                        <figcaption style="width:700px">The diagram on the left shows (roughly) how a third order Sallen-Key low-pass filter works. It is the average of a first order low-pass filter 
+                        with a lower cutoff frequency and a second order low-pass filter with a higher cutoff frequency. The circuit diagram on the right is the circuit schematic for this
+                        filter.</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article>
+            <h1>Daily Presentations</h1>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_180g3mcv2cz">7/27/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_179c95gjmhn">7/25/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dfzzrgxw_64fhcjs4hd">7/22/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_156fmf7z4f8">7/17/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_149g5nghpcx">7/15/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_143f3sftxck">7/12/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_138cgcbksqk">7/8/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_134ffdq7hck">7/5/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_130g3jw23hc">7/1/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_126gd6mq5mt">6/30/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_118d6mw6dhn">6/29/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_118d6mw6dhn">6/28/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_111cp7t8cgc">6/27/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_106fvrvdkcx">6/24/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_99zqwq6pfr">6/22/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_96gnq7nwdn">6/21/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_93gsgt6g5x">6/20/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_89dx84fr54">6/17/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_86gvs8gprg">6/16/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_82gdnjqhch">6/15/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_78r8dvrwd4">6/14/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=ddm23x3c_0fxc4t3fm">6/13/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_40fvttrjcr">6/10/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_33hmnr6hdb">6/9/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_27cw99whfk">6/8/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_23hntw9kdp">6/7/11</a>
+            </li>
+            <li>
+                <a href="https://docs.google.com/present/view?id=dgf5gm9m_195zk7r3cw">6/6/11</a>
+            </li>
+        </article>
+    </section>
+
+    <footer>
+        <p>
+        	Copyright &copy; 2004-2011 Olin-NASA Research Group.
+        </p>
+    </footer>
+
+</body>
+</html>

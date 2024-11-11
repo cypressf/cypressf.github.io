@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital X-ray Communications</title>
+    <link rel="stylesheet" href="/olin-nasa/screen.css">
+    <link rel="shortcut icon" href="/olin-nasa/favicon.ico">
+</head>
+
+<body>
+    </script>
+    <header>
+
+        <a href="http://www.olin.edu/" title="Franklin W. Olin College of Engineering" id="logo_olin">
+            <img src="/olin-nasa/olin.png"/>
+        </a>
+        <a href="http://www.nasa.gov/" title="National Aeronautics and Space Administration" id="logo_nasa">
+            <img src="/olin-nasa/nasa.png"/>
+        </a>
+
+        <hgroup>
+            <h1>Digital X-Ray</h1>
+            <h2>Signal Transmission</h2>
+        </hgroup>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="http://nasa.olin.edu/" id="home">Home</a>
+                </li>
+                <li>
+                    <a href="../overview" title="Overview of the system">Overview</a>
+                </li>
+                <li>
+                    <a href="../background" title="Background information about the MXS">Background</a>
+                </li>
+                <li>
+                    <a href="../updates" title="Daily Updates">Updates</a>
+                </li>
+                <li>
+                    <a href="./" title="Details about the Software" id="active">Software</a>
+                </li>
+                <li>
+                    <a href="../hardware" title="Details about the Hardware">Hardware</a>
+                </li>
+                <li>
+                    <a href="../team" title="About the team members">Team</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main">
+        <article>
+            <h1>Software</h1>
+            <p>
+                We have created a 
+                <a href="https://docs.google.com/document/pub?id=11IGXmR-sCMrvRc_S53AY6LePs0rxDb3cnLtAZFq44Bk">guide</a>
+                 to using all the software that we have set up.
+            </p>
+            <p>Because the nature of our project was to create a demonstration of the x-ray communication technology, we wanted an interface that easily allows people to send and receive data via RS232. We considered using proprietary software, but eventually decided to program this interface from the ground up, because we needed the ability to easily debug the signal, and have precision control over what the computer was sending. We tried to start with the simplest transmission we could get, and incrementally increase the complexity of the transmissions, squishing bugs when we came to them one at a time, as opposed to shooting directly for a lofty goal and trying to debug everything at once. Thus, we created...</p>
+
+            <section id="navigation">
+                <h2>Incremental goals</h2>
+                <ol>
+                    <li>
+                        <a href="#basic">Very basic, custom digital communication between microcontrollers</a>
+                    </li>
+                    <li>
+                        <a href="#micro-micro">
+                            <abbr title="Universal asynchronous receiver/transmitter">UART</abbr>
+                             serial communication between microcontrollers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#micro-comp">RS232 serial communication between microcontroller and computer</a>
+                    </li>
+                    <li>
+                        <a href="#comp">RS232 communication from one computer back to itself</a>
+                    </li>
+                    <li>
+                        <a href="#comp-comp">RS232 communication from one computer to another computer</a>
+                    </li>
+                    <li>
+                        <a href="#chat">Chat client between computers</a>
+                    </li>
+                    <li>
+                        <a href="#terminal">Remote terminal between computers</a>
+                    </li>
+                    <li>
+                        <a href="#file-transfer">File transfer between computers</a>
+                    </li>
+                </ol>
+            </section>
+            <section id="basic">
+                <h2>Custom digital communication</h2>
+                <p>
+                    Modern digital communication protocols can be quite complex because data is easily lost&mdash;out of the billions of bits that are sent, it is likely that some will be read incorrectly, which creates the need for elaborate 
+                    <a href="http://en.wikipedia.org/wiki/Error_control">error control</a>
+                     and complicated 
+                    <a href="http://en.wikipedia.org/wiki/Handshaking">handshaking</a>
+                    .  These digital protocols, while making the connection between computers more robust, can impede our ability to control and understand the signals at the bit-level.
+                </p>
+                <img src="../simple_connection.png" class="right">
+
+                <p> In order to have complete control over the signals we transmit, we created a simple digital communication protocol by programming two microcontrollers to talk to each other without any error control. We used three wires to connect them, which we refer to as:</p>
+
+                <ul>
+                    <li>High</li>
+                    <li>Low</li>
+                    <li>Confirm</li>
+                </ul>
+
+                <p>This protocol was unidirectional. A single bit was sent in 5 stages.</p>
+                <ol>
+                    <li>
+                        Microcontroller A raises voltage on the 
+                        <em>high</em>
+                         pin
+                    </li>
+                    <li>
+                        Microcontroller B sees that this voltage has been raised, and responds by raising the 
+                        <em>confirm</em>
+                         pin.
+                    </li>
+                    <li>A sees the confirm pin has been raised, and responds by lowering the high pin</li>
+                    <li>B sees that the voltage has been lowered once again, and responds by lowering the confirm pin.</li>
+                    <li>A sees that the confirm pin has been lowered, and thus decides it is safe to send another bit (repeat from beginning)</li>
+                </ol>
+                <p>
+                    The same process can be used to send a 
+                    <em>low</em>
+                     bit. The high and low bits correspond to 1s and 0s. It functions irrespective of speed of transmission. Even if a single signal takes ten years to reach microcontoller B, microcontroller A will wait for the confirmation signal before it proceeds. In this way, we insure that the signal can survive being sent x-ray transmission, because we are unsure of the signal delay we will have
+                </p>
+
+            </section>
+
+            <section id="micro-micro">
+                <h2>
+                    Serial 
+                    <a href="http://en.wikipedia.org/wiki/Universal_asynchronous_receiver/transmitter">
+                        UART</abbr>
+                    </a>
+                     signal between microcontrollers
+                </h2>
+                <p>
+                    We used the built in 
+                    <abbr title="Universal asynchronous receiver/transmitter">UART</abbr>
+                     in the microcontrollers we were using to send serial data to another microcontroller. This was extremely easy to set up due to the 
+                    <a href="http://arduino.cc/en/Reference/HomePage">Arduino microcontroller libraries</a>
+                    . We simply hooked the transmit pin of one microcontroller to the receive pin of another and were able to send bytes of data at a specified baud rate using the 
+                    <code>Serial.write()</code>
+                     and 
+                    <code>Serial.read()</code>
+                     functions. This approach was used as a proof of concept: we could transmit data (in the RS232 protocol) via a microcontroller.
+            </section>
+
+            <section id="micro-comp">
+                <h2>RS232 signal between microcontroller and computer</h2>
+                <p>It was slightly more difficult on the hardware side to achieve a connection between the microcontroller and the computer, because the output voltages of the microcontroller were not within the RS232 range and had to be inverted and amplified with a MAX232 chip before fed into the computer.</p>
+                <p>
+                    It was also more difficult on the software side. We knew that the microcontroller could send a signal, but we didn't know how to receive it on the computer. Because RS232 is a protocol established in 1962, it is deeply rooted in Unix. The settings for transmissions between computers running a Unix based system were originally controlled using the 
+                    <code>
+                        <a href="http://en.wikipedia.org/wiki/Stty">stty</a>
+                    </code>
+                     command. The computer must know what baud rate to use, which characters indicate the end of a line or a file, etc. and in order to communicate with another computer, these settings must match up. We established base settings to always use on our devices. In addition, we used a Unix shell to receive data from the microcontroller by running 
+                    <code>cat /dev/ttyS0</code>
+                    , which output the characters coming in to the serial port to the shell display.
+            </section>
+
+            <section id="comp">
+                <h2>RS232 signal from one computer, back to itself</h2>
+                <p>
+                    In order to insure that the computer could send a signal, we tested it by connecting the transmit/receive pins. We then ran 
+                    <code>echo A &gt; /dev/ttyS0</code>
+                     while simultaneously listening in with 
+                    <code>cat /dev/ttyS0</code>
+                    .
+            </section>
+
+            <section id="comp-comp">
+                <h2>RS232 signal from one computer to another</h2>
+                <p>
+                    We insured that all the settings were the same with 
+                    <code>stty</code>
+                     and then ran 
+                    <code>echo A &gt; /dev/ttyS0</code>
+                     while running  
+                    <code>cat /dev/ttyS0</code>
+                     in another.
+                </p>
+            </section>
+
+            <section id="chat">
+                <h2>Chat client between computers</h2>
+                <p>
+                    We wrote a short 
+                    <a href="chat.php">bash script</a>
+                     to automate the communication between to computers. It automatically insured the settings were the same, then started listening to the other computer while allowing the user to input text to be sent.
+                </p>
+                <p>
+                    Part of this script would take a users input, and direct it to the serial port stream, like so 
+                    <code>read input; echo "${input}" &gt; /dev/ttyUSB0</code>
+
+            </section>
+
+            <section id="terminal">
+                <h2>Remote Terminal</h2>
+                <p>
+                    We used 
+                    <code>
+                        <a href="http://en.wikipedia.org/wiki/Getty_(Unix)">getty</a>
+                    </code>
+                     on the host computer (running as an 
+                    <a href="http://upstart.ubuntu.com/">upstart</a>
+                     service) as the server. We then connected, via RS232 from another computer running 
+                    <code>
+                        <a href="http://en.wikipedia.org/wiki/Minicom">minicom</a>
+                    </code>
+                    . Some challenges in connecting included:
+                </p>
+                <ul>
+                    <li>
+                        Configuring 
+                        <code>getty</code>
+                         correctly
+                    </li>
+                    <li>
+                        Running 
+                        <code>getty</code>
+                         continuously as an upstart service
+                    </li>
+                    <li>
+                        Configuring 
+                        <code>minicom</code>
+                         to match the 
+                        <code>getty</code>
+                    </li>
+                </ul>
+                <p>By connecting via a remote terminal, we had full control over one computer via a unix Shell in another computer, all running through RS232.</p>
+            </section>
+
+            <section id="file-transfer">
+                <h2>File Transfer</h2>
+                <p>
+                    File transfer proved easy because 
+                    <code>minicom</code>
+                     directly interfaces with common file transfer protocols. We used the 
+                    <a href="http://en.wikipedia.org/wiki/ZMODEM">ZMODEM</a>
+                     protocol to transfer files from one computer to another through the 
+                    <code>minicom</code>
+                     remote terminal.
+                </p>
+                 File transfer speeds were fast enough to transfer an image, but too slow to transfer a 70 MB file within a reasonable amount of time (it would take a day).</p>
+            </section>
+
+        </article>
+    </section>
+
+    <footer>
+        <p>
+        	Copyright &copy; 2004-2011 Olin-NASA Research Group.
+        </p>
+    </footer>
+
+</body>
+</html>
