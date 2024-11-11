@@ -50,7 +50,6 @@ body {
     background: transparent url(header_background.jpg) center top no-repeat;
     padding-top: 1em;
     min-height: 774px;
-    min-width: 950px;
 }
 
 figure {
@@ -153,7 +152,6 @@ header {
     background-position: top center;
     text-align: center;
     width: 100%;
-
 }
 
 header h1,
@@ -186,19 +184,19 @@ nav {
 }
 
 nav ul {
+    display: flex;
+    flex-wrap: wrap;
     border-top-left-radius: 2em;
     border-top-right-radius: 2em;
-    width: 900px;
+    max-width: 900px;
     padding: 0 25px;
     margin: 0 auto;
-    height: 2em;
     background: #000;
     background: linear-gradient(#626262, #202020 50%, #000 50%, #000);
 }
 
 nav li {
     list-style: none;
-    float: left;
 }
 
 nav a {
@@ -210,7 +208,7 @@ nav a {
     padding: .5em 1em;
     background: #000;
     color: #fff;
-    background: linear-gradient(#626262, #202020 50%, black 50%, black);
+    background: inherit;
     text-shadow: 0px -1px 1px #000;
     border-radius: 1em;
 }
@@ -230,7 +228,7 @@ nav a#active {
 footer {
     clear: both;
     margin: 0 auto;
-    width: 900px;
+    max-width: 900px;
     background: #000;
     opacity: .8;
     padding: 25px;
