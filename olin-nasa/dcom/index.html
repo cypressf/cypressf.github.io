@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Digital X-ray Communications</title>
+  <link rel="stylesheet" href="/olin-nasa/fonts.css" />
+  <link rel="stylesheet" href="/olin-nasa/screen.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+<body>
+  <header>
+    <a href="https://www.olin.edu/" id="logo_olin">
+      <img src="/olin-nasa/olin.png" alt="olin" />
+    </a>
+    <a href="https://www.nasa.gov/" id="logo_nasa">
+      <img src="/olin-nasa/nasa.png" alt="NASA" />
+    </a>
+
+    <hgroup>
+      <h1>Digital X-Ray</h1>
+      <h2>Signal Transmission</h2>
+    </hgroup>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="/olin-nasa" id="home">Home</a>
+        </li>
+        <li>
+          <a href="/olin-nasa/projects/2011/dcom/overview" title="Overview of the system" id="active">Overview</a>
+        </li>
+        <li>
+          <a href="background" title="Background information about the MXS">Background</a>
+        </li>
+        <li>
+          <a href="updates" title="Daily Updates">Updates</a>
+        </li>
+        <li>
+          <a href="software" title="Details about the Software">Software</a>
+        </li>
+        <li>
+          <a href="hardware" title="Details about the Hardware">Hardware</a>
+        </li>
+        <li>
+          <a href="team" title="About the team members">Team</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="main">
+    <article>
+      <p>
+        <a href="FinalStatusReport.pdf">Final Report</a>
+      </p>
+    </article>
+    <article>
+      <h1>Statement of Work</h1>
+      <p>
+        We will couple a high speed digital RS232 communication infrastructure
+        to the MXS transceiver. Our system will drive a 255 nm UV LED with 20
+        mA (and the capability of driving 10 parallel LEDs with 200 mA), and
+        will filter and amplify the output of the x-ray transceiver.
+      </p>
+    </article>
+    <article>
+      <h1>Overview of Project</h1>
+      <h2>Wired RS232</h2>
+      <p>
+        Wired digital communication between two devices has been possible for
+        a while. For example, the RS232 standard originated in 1962. RS232
+        uses two unidirectional lines (transmit and receive) to transfer data.
+        Below we can see two computers communicating via RS232. Device "A"
+        sends data along one line to device "B," while device "B" sends data
+        along another line to device "A."
+      </p>
+      <img src="diagram1.png" class="png" />
+
+      <h2>Clipping the wires</h2>
+      <p>
+        Our goal is to snip the RS232 line in half, and bridge the gap with a
+        wireless x-ray transceiver. In the following diagram you can see that
+        two unidirectional x-ray transceivers have been inserted in between
+        the RS232 wires.
+      </p>
+      <img src="diagram2.png" class="png" />
+
+      <h2>But we only have one transceiver</h2>
+      <p>
+        We are currently limited by hardware to transmitting wirelessly in one
+        direction, thus we must use the transceiver to transmit data from
+        computer "A" to computer "B," but use a wired link to transmit back
+        the other way
+      </p>
+      <img src="diagram3.png" class="png" />
+
+      <h2>Let's take a closer look</h2>
+      <p>
+        There are two main circuits needed: a transmitter and a receiver. The
+        transmitter circuit needs to take a wired input, and output an x-ray
+        signal. The receiver circuit must take an x-ray signal input, and
+        output a voltage to a wire.
+      </p>
+      <img src="diagram4.png" class="png" />
+
+      <h2>Transmitter circuit</h2>
+      <p>
+        The input voltage to the transmitter must be converted into a signal
+        capable of driving an LED, which, through the photoelectric effect,
+        will drive an electron beam which will create x-rays when it hits a
+        target. To convert the wired input signal from RS232 to something
+        capable of driving a specific LED, an amplifier is needed to ensure it
+        outputs the correct current.
+      </p>
+      <img src="diagram5.png" class="png" />
+
+      <h2>Receiver circuit</h2>
+      <p>
+        The X-ray receiver (already built) takes an x-ray signal and outputs a
+        voltage. Due to the nature of the receiver, this output voltage is
+        very weak (on the order of 50 mV) and noisy, so it must be converted
+        into a clean, strong signal before it is sent back to an RS232 device.
+      </p>
+      <img src="diagram6.png" class="png" />
+    </article>
+  </section>
+
+  <footer>
+    <p>Copyright &copy; 2004-2011 Olin-NASA Research Group.</p>
+  </footer>
+</body>
+
+</html>

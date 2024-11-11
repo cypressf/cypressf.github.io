@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="light dark" />
+    <title>States test</title>
+  </head>
+  <body>
+    <button>change state</button>
+    <script>
+      //@ts-check
+
+      class StateOne {
+        /** @type {Date} */
+        #date = new Date();
+
+        get value() {
+          return this.#date.toISOString();
+        }
+
+        onClick() {
+          return new StateTwo(this.#date);
+        }
+      }
+
+      class StateTwo {
+        /** @type {Date} */
+        #dateOne;
+
+        /** @types {Date} */
+        #dateTwo;
+
+        get value() {
+          return (
+            this.#dateOne.toISOString() + " and " + this.#dateTwo.toISOString()
+          );
+        }
+
+        /** @param {Date} dateOne */
+        constructor(dateOne) {
+          this.#dateOne = dateOne;
+          this.#dateTwo = new Date();
+        }
+
+        onClick() {
+          return new StateOne();
+        }
+      }
+
+      class Controller {
+        /** @type {StateOne | StateTwo} */
+        state = new StateOne();
+
+        onClick() {
+          this.state = this.state.onClick();
+        }
+      }
+
+      const controller = new Controller();
+
+      const button = document.querySelector("button");
+      if (button) {
+        button.innerHTML = controller.state.value;
+        button.addEventListener("click", () => {
+          controller.onClick();
+          button.innerHTML = controller.state.value;
+        });
+      }
+    </script>
+  </body>
+</html>

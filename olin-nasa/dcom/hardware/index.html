@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Digital X-ray Communications</title>
+    <link rel="stylesheet" href="/olin-nasa/screen.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a href="http://www.olin.edu/" title="Franklin W. Olin College of Engineering" id="logo_olin">
+            <img src="/olin-nasa/olin.png" />
+        </a>
+        <a href="http://www.nasa.gov/" title="National Aeronautics and Space Administration" id="logo_nasa">
+            <img src="/olin-nasa/nasa.png" />
+        </a>
+
+        <hgroup>
+            <h1>Digital X-Ray</h1>
+            <h2>Signal Transmission</h2>
+        </hgroup>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="http://nasa.olin.edu/" id="home">Home</a>
+                </li>
+                <li>
+                    <a href="../" title="Overview of the system">Overview</a>
+                </li>
+                <li>
+                    <a href="../background" title="Background information about the MXS">Background</a>
+                </li>
+                <li>
+                    <a href="../updates" title="Daily Updates">Updates</a>
+                </li>
+                <li>
+                    <a href="../software" title="Details about the Software">Software</a>
+                </li>
+                <li>
+                    <a href="./" title="Details about the Hardware" id="active">Hardware</a>
+                </li>
+                <li>
+                    <a href="../team" title="About the team members">Team</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main">
+        <article>
+            <h1>Modulated X-ray Source Hardware</h1>
+
+            <p>
+                As explained in our
+                <a href="../background">background</a>
+                section, the Modulated X-ray Source (MXS) allows us to modulate an X-ray signal by driving a UV LED with
+                the desired signal. The MXS includes an X-ray detector that outputs a positive voltage as long it
+                detects X-rays and zero voltage when no X-rays are being produced.
+            </p>
+
+            <section>
+                <h2>MXS Input Circuitry</h2>
+
+                <p>Since we are trying to use the MXS as a middleman between two computers, we want our LED to turn on
+                    for digital "high" and off for digital "low." The pulses themselves don't provide enough current to
+                    drive the LED, so we use a current amplifier like a switch for the LED. Essentially, when the input
+                    to the amplifier is a high signal, the switch turns on and current can flow to the LED. As soon as
+                    the input to the amplifier is low, the switch will turn off, cutting current to the LED and turning
+                    it off as well.</p>
+
+                <div class="center">
+                    <figure>
+                        <image class="center" src="../CurrentAmplifier.png" width="400">
+                            <figcaption style="width:400px">Circuit schematic for our current amplifier.</figcaption>
+                    </figure>
+                </div>
+
+                <section>
+                    <h2>MAX232</h2>
+
+                    <p>RS232 signals can be sent at voltages ranging from ±3 to ±25 Volts. This wide range of
+                        possibilities is dangerous when trying to interface with transistor circuits because the small
+                        end of that range will not drive transistors into saturation, and the large end will create
+                        surges through the transistors that is likely to break them. This problem is not unique to our
+                        purposes, and has thankfully been solved with an integrated circuit called a MAX232. This IC
+                        outputs a 0 to 5 volt square wave given any RS232 input, and outputs a ±7.5 Volt square wave
+                        given a 0 to 5 input wave. Based on our testing, the chip is very robust and reliable. We plan
+                        to use it to convert the RS232 signal into TTL before the current amplifier which drives the
+                        LED, and again after we filter and amplify the output of the detector.</p>
+
+                    <div class="center">
+                        <figure>
+                            <image class="center" src="../MAX232.png" width="400">
+                                <figcaption style="width:400px">Circuit schematic for our current amplifier.
+                                </figcaption>
+                        </figure>
+                    </div>
+
+                </section>
+
+                <h2>MXS Output Circuitry</h2>
+                <section>
+
+                    <p>The output signal of the MXS's X-ray detector looks like the figure below, taken from an
+                        oscilloscope. Its typical amplitude is 100-400 mV.</p>
+
+                    <div class="center">
+                        <figure>
+                            <image class="center" src="../MXS output.jpg" width="400">
+                                <figcaption style="width:400px">Modulated X-ray Source Multi Channel Analyzer output
+                                    signal</figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Our objective is to clean up this signal so it looks like a square wave with pulses of the same
+                        width as those we see from the output
+                        of the MXS. In other words, we should end up with a signal that looks just like the one we used
+                        to drive the LED. For illustrative purposes, if we get the signal to look similar to the
+                        waveform shown below we have met our goals.</p>
+
+                    <div class="center">
+                        <figure>
+                            <image class="center" src="../Digital_signal.jpg">
+                                <figcaption style="width:285px">Desired output signal of the Modulated X-ray Source
+                                </figcaption>
+                        </figure>
+                    </div>
+
+                    <p>In order to transform the MXS output signal into a square wave, we need circuits that amplify the
+                        signal and recognize whether the signal is high or low. Our approach is to use cascading
+                        inverting amplifiers, a peak-hold detector, and a Schmitt trigger.</p>
+                    <!-- Maybe we should put the overall ('large assembly') circuit schematic here? I'm not sure how well it'll show up at this width, though... -->
+
+                </section>
+
+                <section>
+                    <strong>Amplifiers</strong>
+                    <p>
+                        While designing our amplifier circuit, we had to make sure that it would function as expected
+                        even at high frequencies. Most of the op-amps we had around the lab don't handle high bandwidths
+                        well, so we ordered some op-amps (AD848, datasheet
+                        <a href="http://www.analog.com/static/imported-files/data_sheets/AD848.pdf">here</a>
+                        ) with a high gain-bandwidth product of 175 MHz, which means that our amplifier should be able
+                        to amplify signals with frequencies in the MHz range as long as the gain is relatively low. More
+                        specifically, we decided to support a maximum frequency of 65 MHz, so we made a series of
+                        cascading amplifiers in which the gain of each amplifying stage is 2.7. Our circuit schematic is
+                        pictured below.
+                    </p>
+
+                    <div class="center">
+                        <figure>
+                            <image src="../Voltage_amplifier_system.jpg" width="800">
+                                <figcaption style="width:800px">[Picture out-of-date; will be updated soon!] This
+                                    cascading op-amp amplifying circuit includes three amplifiers and one inverting
+                                    amplifier to invert the input signal and have a gain of 5.3.</figcaption>
+                        </figure>
+                    </div>
+
+                    <strong>Peak-Hold Detector</strong>
+                    <p>The peak-hold detector is the core of our output circuitry. It allows us to transform the noisy
+                        pulses from the MXS into a comparatively clean waveform produced by tracking and holding the
+                        peaks of each pulse. Essentially, as soon as it detects an "on" pulse the circuit will follow
+                        that increase in voltage. As is the case with the MXS, even if there is noise in the signal that
+                        makes it move between many different voltage levelss, the peak-hold detector can "forget" about
+                        the small changes in voltage that occur throughout the "on" pulse. Only when the signal has been
+                        off for a specific minimum amount of time (determined by the resistor and capacitor values) does
+                        the peak-hold detector output a low "off" voltage. The basic topology of the circuit is shown
+                        below, with exact values and part numbers to be added soon.</p>
+
+                    <div class="center">
+                        <figure>
+                            <image src="../Peak_and_hold_schematic.jpg">
+                                <figcaption style="width:800px">The peak track-and-hold detector circuit that cleans up
+                                    the output of the MXS.</figcaption>
+                        </figure>
+                    </div>
+
+                    <strong>Schmitt Trigger</strong>
+                    <p>
+                        We put the Schmitt Trigger after the low-pass filter output in order to make the output look
+                        like a clear digital signal (that is, either high or low). A Schmitt trigger has two threshold
+                        levels; as long as the signal is below the lower threshold, the Schmitt trigger will output 0V,
+                        but once the signal is above the higher threshold, the Schmitt trigger will output a 5V signal.
+                        While the signal is between the two thresholds, the output of the Schmitt trigger will not
+                        change.
+                        We are using a Schmitt trigger made by Texas Instruments, part number SN74HC14N. Its datasheet
+                        can be found
+                        <a href="http://focus.ti.com/lit/ds/symlink/sn74hc14.pdf">here</a>
+                        .
+                    </p>
+                    <p>Our Schmitt trigger requires a signal input voltage between 0 V and 5 V, so we devised a way to
+                        shift our input waveform to meet that requirement. Shown below is a circuit diagram which takes
+                        the output of an amplifier (ranging from -5 V to +5 V) and uses a voltage divider to convert it
+                        to a signal between 0 V and 5 V.</p>
+
+                    <div class="center">
+                        <figure>
+                            <image src="../Schmitt_trigga.jpg" width="400">
+                                <figcaption style="width:400px">Sample Schmitt trigger circuit, with an amplifier and
+                                    voltage divider included to demonstrate more realistic usage conditions for our
+                                    purposes.</figcaption>
+                        </figure>
+                    </div>
+
+                </section>
+        </article>
+    </section>
+
+    <footer>
+        <p>
+            Copyright &copy; 2004-2011 Olin-NASA Research Group.
+        </p>
+    </footer>
+
+</body>
+
+</html>
