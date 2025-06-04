@@ -1,623 +1,569 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#495874">
+<link rel="canonical" href="https://cypressf.com">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+<meta name="description" content="Cypress's projects and jobs, plus some contact information.">
+<title>Cypress Frankenfeld</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
 
-<head>
-  <meta charset="utf-8">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#495874">
-  <link rel="canonical" href="https://cypressf.com">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
-  <meta name="description" content="Cypress's projects and jobs, plus some contact information.">
-  <title>Cypress Frankenfeld</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+  a {
+    text-decoration: none;
+  }
 
-    a {
-      text-decoration: none;
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  h1,
+  h2,
+  h3 {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+  }
 
-    h1,
-    h2,
-    h3 {
-      font-weight: normal;
-      margin: 0;
-      padding: 0;
-    }
+  article {
+    margin: 1.5em 0;
+    padding: 2em 0;
+    border-bottom: 1px solid;
+    line-height: 1.5em;
+  }
 
-    article {
-      margin: 1.5em 0;
-      padding: 2em 0;
-      border-bottom: 1px solid;
-      line-height: 1.5em;
-    }
+  article:last-child {
+    border: none;
+  }
 
-    article:last-child {
-      border: none;
-    }
+  article h3 {
+    font-weight: bold;
+    padding-bottom: 0.5em;
+  }
 
-    article h3 {
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
+  header h1 {
+    white-space: nowrap;
+  }
 
-    header h1 {
-      white-space: nowrap;
+  section>h2,
+  header h1 {
+    font-size: 3em;
+    transition: font-size 0.2s;
+  }
+
+  article ul {
+    padding: 0;
+  }
+
+  article li {
+    list-style: none;
+  }
+
+  article li a {
+    display: block;
+    line-height: 48px;
+    padding: 0;
+    margin: 0;
+  }
+
+  header,
+  footer,
+  main {
+    margin: 0 auto;
+    max-width: 78em;
+  }
+
+  header {
+    padding: 1em 2em;
+    transition: padding 0.2s;
+  }
+
+  footer {
+    padding: 0 2em;
+  }
+
+  main {
+    padding: 0 2em;
+    transition: padding 0.2s;
+  }
+
+  section {
+    float: left;
+    padding: 1em;
+    margin: 1em;
+    max-width: 22em;
+  }
+
+  footer {
+    clear: both;
+  }
+
+  ul#online {
+    margin: 0;
+    padding: 0;
+    height: 3em;
+    line-height: 1em;
+  }
+
+  ul#online li {
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul#online li a {
+    padding: 1em;
+    margin: 0;
+    display: block;
+  }
+
+  p {
+    transition: margin 0.2s;
+  }
+
+  article,
+  section {
+    transition: margin 0.2s, padding 0.2s;
+  }
+
+  @media screen and (max-width: 57em) {
+    section {
+      max-width: none;
     }
+  }
+
+  @media screen and (max-width: 46em) {
 
     section>h2,
     header h1 {
-      font-size: 3em;
+      font-size: 1.6em;
       transition: font-size 0.2s;
     }
 
-    article ul {
-      padding: 0;
-    }
-
-    article li {
-      list-style: none;
-    }
-
-    article li a {
-      display: block;
-      line-height: 48px;
-      padding: 0;
-      margin: 0;
-    }
-
-    header,
-    footer,
-    main {
-      margin: 0 auto;
-      max-width: 78em;
-    }
-
-    header {
-      padding: 1em 2em;
-      transition: padding 0.2s;
-    }
-
-    footer {
-      padding: 0 2em;
-    }
-
-    main {
-      padding: 0 2em;
-      transition: padding 0.2s;
-    }
-
-    section {
-      float: left;
-      padding: 1em;
-      margin: 1em;
-      max-width: 22em;
-    }
-
-    footer {
-      clear: both;
-    }
-
-    ul#online {
-      margin: 0;
-      padding: 0;
-      height: 3em;
-      line-height: 1em;
-    }
-
-    ul#online li {
-      list-style: none;
-      float: left;
-      margin: 0;
-      padding: 0;
-    }
-
-    ul#online li a {
-      padding: 1em;
-      margin: 0;
-      display: block;
-    }
-
     p {
+      margin-bottom: 0.5em;
       transition: margin 0.2s;
     }
 
     article,
     section {
+      margin: 0;
+      padding: 1em 0;
       transition: margin 0.2s, padding 0.2s;
     }
 
-    @media screen and (max-width: 57em) {
-      section {
-        max-width: none;
-      }
-    }
-
-    @media screen and (max-width: 46em) {
-
-      section>h2,
-      header h1 {
-        font-size: 1.6em;
-        transition: font-size 0.2s;
-      }
-
-      p {
-        margin-bottom: 0.5em;
-        transition: margin 0.2s;
-      }
-
-      article,
-      section {
-        margin: 0;
-        padding: 1em 0;
-        transition: margin 0.2s, padding 0.2s;
-      }
-
-      header,
-      main {
-        padding-left: 1em;
-        padding-right: 1em;
-      }
-
-      footer {
-        padding: 0;
-      }
-
-      footer ul#online li {
-        float: none;
-      }
-    }
-
-    @media screen and (max-height: 36em) {
-
-      section>h2,
-      header h1 {
-        font-size: 1.6em;
-        transition: font-size 0.2s;
-      }
-
-      article h3 {
-        padding-bottom: 0;
-      }
-
-      p {
-        margin-bottom: 0.5em;
-        margin-top: 0.5em;
-        transition: margin 0.2s;
-      }
-
-      article {
-        margin: 0;
-        padding: 0.5em 0;
-      }
-
-      header h1 {
-        margin: 0;
-        padding: 0;
-      }
-
-      header {
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-        transition: padding 0.2s;
-      }
-    }
-
-    html {
-      --background: light-dark(#fff, #11151d);
-      --text: light-dark(#3a475d, rgba(255, 255, 255, 0.742));
-      --link-color: light-dark(#236226, #7d94c5);
-      --section-header: light-dark(#485671, #6679a0);
-      --header-footer-background: light-dark(#495874, #495874);
-      --header-footer-text: light-dark(#fff, rgba(255, 255, 255, 0.721));
-      --header-footer-shadow: light-dark(#3d4c6e, #4b5975);
-      --article-border: light-dark(#c4d5ff, #2a2e37);
-      --list-item-border: light-dark(rgba(238, 238, 238, 0.721), #252831);
-    }
-
-    body {
-      background: var(--background);
-      color: var(--text);
-    }
-
-    a,
-    article h3 a {
-      color: var(--link-color);
-    }
-
-    a {
-      font-weight: bold;
-    }
-
-    section>h2 {
-      color: var(--section-header);
-    }
-
-    article,
-    article h3 {
-      border-color: var(--article-border);
-    }
-
-    article li:not(:first-child) a {
-      border-top: 1px solid var(--list-item-border);
-    }
-
     header,
-    header h1,
-    header a,
-    footer,
-    footer a {
-      background: var(--header-footer-background);
-      color: var(--header-footer-text);
-      text-shadow: -1px -1px var(--header-footer-shadow);
+    main {
+      padding-left: 1em;
+      padding-right: 1em;
     }
-  </style>
-</head>
 
-<body>
-  <header>
-    <h1>Cypress Frankenfeld</h1>
-  </header>
+    footer {
+      padding: 0;
+    }
 
-  <main>
-    <section id="projects">
-      <h2>Projects</h2>
+    footer ul#online li {
+      float: none;
+    }
+  }
 
-      <article id="scope-facebook">
-        <h3>
-          <a href="scope-website">Peer-to-peer Data Transmission for Facebook</a>
-        </h3>
-        <p>
-          This prototype app reduces Facebook data consumption by sharing
-          directly via peer-to-peer connections. This could help people use
-          Facebook in areas of the world where network connectivity is poor.
-        </p>
-      </article>
-      <article id="robot-navigation">
-        <h3><a href="Rescuebot%20Writeup.pdf">Robot Navigation</a></h3>
-        <p>
-          Implemented a series of algorithms to make a
-          LIDAR-and-camera-equipped robot find colorful targets, in
-          collaboration with
-          <a href="https://vpreston.com">Victoria Preston</a> and
-          <a href="https://www.linkedin.com/in/christina-fong-6604a963/">Christina Fong</a>.
-        </p>
-      </article>
+  @media screen and (max-height: 36em) {
 
-      <article id="eye-helper">
-        <h3>Prototype app to help blind people navigate grocery stores</h3>
-        <ul>
-          <li>
-            <a href="https://github.com/cypressf/eye-helper">Android code</a>
-          </li>
-          <li>
-            <a href="https://github.com/cypressf/eye-helper-server">Server code</a>
-          </li>
-        </ul>
-      </article>
+    section>h2,
+    header h1 {
+      font-size: 1.6em;
+      transition: font-size 0.2s;
+    }
 
-      <article id="jac">
-        <h3>
-          <a href="https://github.com/amankapur/codeinjection">An interpreter that lets you change code while it's
-            running</a>
-        </h3>
-        <p>I worked on this as a final project for an interpreters course.</p>
-      </article>
+    article h3 {
+      padding-bottom: 0;
+    }
 
-      <article id="gameplay-initiative">
-        <h3>
-          <a href="http://gameplayinitiative.tumblr.com/">Radical Gameplay Initiative</a>
-        </h3>
-        <p>
-          I created <em>novel</em> and <em>fun</em> gameplay concepts by
-          rapidly prototyping games that use interesting input and feedback
-          systems, such as heart rate monitors, 3D tracking, and VR. (In
-          collaboration with <a href="http://jceipek.com/">Julian Ceipek.)</a>
-        </p>
-      </article>
+    p {
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+      transition: margin 0.2s;
+    }
 
-      <article id="dominion-randomizer">
-        <h3>
-          <a href="https://github.com/cypressf/dominion">Webapp to Randomize Dominion Cards</a>
-        </h3>
-        <p>
-          A popular card game called
-          <a href="http://www.amazon.com/Rio-Grande-Games-RGG370-Dominion/dp/B001JQY6K4">Dominion</a>
-          contains many cards and expansion. I made this webapp to allow
-          people to randomize and save dominion decks. It's designed to be
-          fast, to be easy to use, and to look good on any screen size. It has
-          a RESTful API.
-        </p>
-      </article>
+    article {
+      margin: 0;
+      padding: 0.5em 0;
+    }
 
-      <article id="fit-log">
-        <h3>
-          <a href="https://web.archive.org/web/20150515142053/http://hfid.olin.edu/sa2013/s_engr3220-soul-patch">Fit-Log:
-            prototype iOS app for personal trainers</a>
-        </h3>
+    header h1 {
+      margin: 0;
+      padding: 0;
+    }
 
-        <p>
-          This project was an exercise in interaction design. We designed and
-          built a prototype app from the ground up, from user interviews, to
-          paper prototypes, usability studies, and front-end web design.
-        </p>
+    header {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      transition: padding 0.2s;
+    }
+  }
 
-        <p>Team: Cypress Frankenfeld, Dana Lee, Noam Rubin, Sharon Tam.</p>
-      </article>
+  html {
+    --background: light-dark(#fff, #11151d);
+    --text: light-dark(#3a475d, rgba(255, 255, 255, 0.742));
+    --link-color: light-dark(#236226, #7d94c5);
+    --section-header: light-dark(#485671, #6679a0);
+    --header-footer-background: light-dark(#495874, #495874);
+    --header-footer-text: light-dark(#fff, rgba(255, 255, 255, 0.721));
+    --header-footer-shadow: light-dark(#3d4c6e, #4b5975);
+    --article-border: light-dark(#c4d5ff, #2a2e37);
+    --list-item-border: light-dark(rgba(238, 238, 238, 0.721), #252831);
+  }
 
-      <article id="autonomous-glider">
-        <h3>Autonomous Glider</h3>
-        <p><a href="http://www.youtube.com/watch?v=eauEZNAsabc">Video</a></p>
-        <p>Goal: To build a glider capable of autonomous flight.</p>
+  body {
+    background: var(--background);
+    color: var(--text);
+  }
 
-        <p>
-          Outcome: We achieved a closed loop autopilot capable of turning and
-          using PID control with accelerometers to level out again before
-          landing. In addition, we built a simulation to better understand the
-          mechanics and motion of a glider.
-        </p>
+  a,
+  article h3 a {
+    color: var(--link-color);
+  }
 
-        <p>
-          Team: Cypress Frankenfeld, Laurel Kroo, Theo Thompson, and Eric
-          Westman.
-        </p>
-      </article>
+  a {
+    font-weight: bold;
+  }
 
-      <article id="weather-balloon">
-        <h3>Weather Balloon Payload</h3>
-        <p>
-          Three teammates and I built a payload with cameras and other various
-          sensors, attached it to a weather balloon, and let it go. It
-          ascended over 80,000 feet before bursting, and parachuting to the
-          ground. We retrieved it and got some beautiful pictures of
-          near-space
-        </p>
-        <ul>
-          <li>
-            <a href="https://docs.google.com/document/d/1L43hPQo4AkS-hTmH7CktVBouToB057ABRxVKOCSF4as/edit?hl=en_US">Preliminary
-              Report</a>
-          </li>
-          <li>
-            <a href="https://docs.google.com/document/d/1lf0uvNcClZqlrvi021HMQM-PDUEtJkkjbr51KNtkyqA/edit?hl=en_US">Final
-              Report</a>
-          </li>
-          <li>
-            <a href="https://picasaweb.google.com/iamcypress/WeatherBalloon">Slideshow Overview</a>
-          </li>
-          <li>
-            <a href="http://www.youtube.com/watch?v=g4_lIZIO87s">View from bottom camera</a>
-          </li>
-          <li>
-            <a href="http://www.youtube.com/watch?v=rvfdeCIpSC8">View from side camera</a>
-          </li>
-          <li>
-            <a href="https://docs.google.com/document/d/10j8-qTbA5h9dXGsnJbfVmXvVzwgiQvGv25DRd19Gp5c/edit?hl=en_US">Weight
-              of Components</a>
-          </li>
-        </ul>
-      </article>
+  section>h2 {
+    color: var(--section-header);
+  }
 
-      <article id="digicom">
-        <h3>
-          <a href="olin-nasa/dcom">X-Ray Digital Signal Transmission</a>
-        </h3>
-        <p>
-          As part of a NASA internship, three teammates and I worked on a
-          device that transmits digital signals via x-rays. We made a proof of
-          concept, and a demo that can be used to demonstrate the capabilities
-          of x-ray transmission. In the future, this could be used to transmit
-          large amounts of information over vast distances through space.
-        </p>
-      </article>
+  article,
+  article h3 {
+    border-color: var(--article-border);
+  }
 
-      <article id="tec">
-        <h3>
-          <a href="https://web.archive.org/web/20170430173216/http://nasa.olin.edu/projects/2011/tec/">Thermoelectric
-            Cooler Controller</a>
-        </h3>
-        <p>
-          I helped design a control algorithm to cool an image sensor on a
-          small satellite as part of the NASA internship.
-        </p>
-      </article>
+  article li:not(:first-child) a {
+    border-top: 1px solid var(--list-item-border);
+  }
 
-      <article id="smart_words">
-        <h3>
-          <a href="http://www.instructables.com/id/Smart-word-blocks/">Smart Word Blocks</a>
-        </h3>
-        <p>
-          Think of fridge magnets. You can arrange them to make fun sentences!
-          What if the magnets were "smart," and gave you suggestions for more
-          words to add? Using QR codes on word-blocks, we did just that.
-        </p>
-      </article>
+  header,
+  header h1,
+  header a,
+  footer,
+  footer a {
+    background: var(--header-footer-background);
+    color: var(--header-footer-text);
+    text-shadow: -1px -1px var(--header-footer-shadow);
+  }
+</style>
 
-      <article id="armadillo">
-        <h3>Bioinspired Radio-Controlled Armadillo Toy</h3>
-        <p>
-          As part of a team, I designed and built a prototype armadillo toy.
-          It was able to curl and uncurl, roll while in the curled position,
-          and move along the floor while in the uncurled position. It is all
-          radio-controlled and driven by two servos. You can see the
-          <a href="http://www.youtube.com/watch?v=G7LLzQ-EPYQ">prototype demo video</a>
-          on youtube.
-        </p>
-      </article>
+<header>
+  <h1>Cypress Frankenfeld</h1>
+</header>
 
-      <article id="sex_ed">
-        <h3>
-          <a href="sex_ed.html">Investigation of Sex Education and Pregnancy rates</a>
-        </h3>
-        <p>
-          Goal: investigating the effects of abstinence-only sex education and
-          comprehensive sex education on pregnancy rates, unwanted pregnancy
-          rates, and age of first pregnancy for young adults and teens.
-        </p>
-      </article>
+<main>
+  <section id="projects">
+    <h2>Projects</h2>
 
-      <article id="monopole">
-        <h3>Comparison of Magnetic Monopole Simulation Programs</h3>
-        <p>
-          While I was interning at the physics department of the University of
-          Kansas, I compared the outputs of two magnetic monopole simulation
-          programs. Magnetic monopole simulations are helpful for physicists
-          who are searching for magnetic monopoles. You can read the
-          <a href="http://arxiv.org/pdf/1008.1282">monopole simulation and detection paper</a>
-          that some of my work was incorporated into.
-        </p>
-      </article>
-    </section>
+    <article id="scope-facebook">
+      <h3>
+        <a href="scope-website">Peer-to-peer Data Transmission for Facebook</a>
+      </h3>
+      <p>
+        This prototype app reduces Facebook data consumption by sharing
+        directly via peer-to-peer connections. This could help people use
+        Facebook in areas of the world where network connectivity is poor.
+    </article>
 
-    <section id="jobs">
-      <h2>Jobs</h2>
-      <article id="Lumafield">
-        <h3>
-          <a href="https://lumafield.com">Lumafield (May 2023-present)</a>
-        </h3>
-        <p>I make software for 3D CT Scanners.</p>
-      </article>
+    <article id="robot-navigation">
+      <h3><a href="Rescuebot%20Writeup.pdf">Robot Navigation</a></h3>
+      <p>
+        Implemented a series of algorithms to make a
+        LIDAR-and-camera-equipped robot find colorful targets, in
+        collaboration with
+        <a href="https://vpreston.com">Victoria Preston</a> and
+        <a href="https://www.linkedin.com/in/christina-fong-6604a963/">Christina Fong</a>.
+    </article>
 
-      <article id="MIT">
-        <h3>
-          <a href="https://globalchange.mit.edu/">MIT Joint Program on the Science and Policy of Global Change
-            (Part time, Jan 2020-present)</a>
-        </h3>
-        <p>
-          I'm helping climate researchers create interactive dashboards to
-          visualize climate data.
-        </p>
-        <ul>
-          <li>
-            <a href="https://mitjointprogram.shinyapps.io/eppa/">EPPA Dashboard</a>
-          </li>
-          <li><a href="https://est.mit.edu/">Climate Maps</a></li>
-        </ul>
-      </article>
+    <article id="eye-helper">
+      <h3>Prototype app to help blind people navigate grocery stores</h3>
+      <ul>
+        <li><a href="https://github.com/cypressf/eye-helper">Android code</a>
+        <li><a href="https://github.com/cypressf/eye-helper-server">Server code</a>
+      </ul>
+    </article>
 
-      <article id="Hubspot">
-        <h3><a href="http://hubspot.com/">HubSpot (Jan 2018-Feb 2020)</a></h3>
-        <p>
-          I worked at <a href="http://hubspot.com/">HubSpot</a> as a backend
-          software engineer on the SEO tools and authorization stack.
-        </p>
-      </article>
+    <article id="jac">
+      <h3>
+        <a href="https://github.com/amankapur/codeinjection">An interpreter that lets you change code while it's
+          running</a>
+      </h3>
+      <p>I worked on this as a final project for an interpreters course.
+    </article>
 
-      <article id="Intrepid">
-        <h3>
-          <a href="http://www.intrepid.io/">Intrepid (Independent contract work, Summer 2017)</a>
-        </h3>
-        <p>
-          I was recruited to help a team at
-          <a href="http://www.intrepid.io/">Intrepid</a> work on an Android
-          app.
-        </p>
-      </article>
+    <article id="gameplay-initiative">
+      <h3>
+        <a href="http://gameplayinitiative.tumblr.com/">Radical Gameplay Initiative</a>
+      </h3>
+      <p>
+        I created <em>novel</em> and <em>fun</em> gameplay concepts by
+        rapidly prototyping games that use interesting input and feedback
+        systems, such as heart rate monitors, 3D tracking, and VR. (In
+        collaboration with <a href="http://jceipek.com/">Julian Ceipek.)</a>
+    </article>
 
-      <article id="Onshape">
-        <h3>
-          <a href="http://onshape.com/">Onshape (Summer 2014, Feb 2015-May 2017)</a>
-        </h3>
-        <p>
-          I worked at <a href="http://onshape.com/">Onshape</a> on their
-          <a href="https://play.google.com/store/apps/details?id=com.onshape.app">Android App</a>.
-        </p>
-      </article>
+    <article id="dominion-randomizer">
+      <h3>
+        <a href="https://github.com/cypressf/dominion">Webapp to Randomize Dominion Cards</a>
+      </h3>
+      <p>
+        A popular card game called
+        <a href="http://www.amazon.com/Rio-Grande-Games-RGG370-Dominion/dp/B001JQY6K4">Dominion</a>
+        contains many cards and expansion. I made this webapp to allow
+        people to randomize and save dominion decks. It's designed to be
+        fast, to be easy to use, and to look good on any screen size. It has
+        a RESTful API.
+    </article>
 
-      <article id="sookbox">
-        <h3><a href="http://sookbox.com">Sookbox (Summer 2013)</a></h3>
-        <p>
-          I worked at <a href="http://sookbox.com">Sookbox</a>, creating a
-          home media server.
-        </p>
-      </article>
+    <article id="fit-log">
+      <h3>
+        <a href="https://web.archive.org/web/20150515142053/http://hfid.olin.edu/sa2013/s_engr3220-soul-patch">Fit-Log:
+          prototype iOS app for personal trainers</a>
+      </h3>
 
-      <article id="neuroscouting">
-        <h3>
-          <a href="https://www.neuroscouting.com">Neuroscouting (Summer 2012)</a>
-        </h3>
-        <p>
-          I worked as a web dev, front and back ends, using django. Most of my
-          job involved displaying data in an easy-to-read way.
-        </p>
-      </article>
+      <p>
+        This project was an exercise in interaction design. We designed and
+        built a prototype app from the ground up, from user interviews, to
+        paper prototypes, usability studies, and front-end web design.
 
-      <article id="nasa">
-        <h3>
-          <a href="https://web.archive.org/web/20170114081643/http://nasa.olin.edu/">NASA Intern (Summer 2011)</a>
-        </h3>
-        <p>
-          I interned with NASA and worked on a couple exciting projects. My
-          teammates and I helped build an x-ray system to transmit digital
-          data and a thermoelectric cooler controller for a pico-satellite.
-        </p>
-      </article>
+      <p>Team: Cypress Frankenfeld, Dana Lee, Noam Rubin, Sharon Tam.
+    </article>
 
-      <article id="olin-it">
-        <h3>Olin College IT Assistant (2011)</h3>
-        <p>
-          I helped out at the IT department at my college, fixing broken
-          computers.
-        </p>
-      </article>
+    <article id="autonomous-glider">
+      <h3>Autonomous Glider</h3>
+      <p><a href="http://www.youtube.com/watch?v=eauEZNAsabc">Video</a>
+      <p>Goal: To build a glider capable of autonomous flight.
 
-      <article id="ku-physics">
-        <h3>University of Kansas Particle Physics Intern (Summer 2010)</h3>
-        <p>
-          I interned with professor Dave Besson at the University of Kansas to
-          help compare some magnetic monopole simulations.
-        </p>
-      </article>
+      <p>
+        Outcome: We achieved a closed loop autopilot capable of turning and
+        using PID control with accelerometers to level out again before
+        landing. In addition, we built a simulation to better understand the
+        mechanics and motion of a glider.
 
-      <article id="tap">
-        <h3>Tap Dance Teacher (2010)</h3>
-        <p>
-          I designed and taught a children's tap dance class at the
-          <a href="http://www.lawrenceartscenter.org/">Lawrence Arts Center</a>.
-        </p>
-      </article>
+      <p>
+        Team: Cypress Frankenfeld, Laurel Kroo, Theo Thompson, and Eric
+        Westman.
+    </article>
 
-      <article id="piano">
-        <h3>Assistant Piano Teacher (2008-2009)</h3>
-        <p>
-          I taught piano to children at the
-          <a href="http://www.lawrencepiano.com/">Lawrence Piano Studio</a>
-          under the guidance of piano instructor Eric Sakumura.
-        </p>
-      </article>
-    </section>
+    <article id="weather-balloon">
+      <h3>Weather Balloon Payload</h3>
+      <p>
+        Three teammates and I built a payload with cameras and other various
+        sensors, attached it to a weather balloon, and let it go. It
+        ascended over 80,000 feet before bursting, and parachuting to the
+        ground. We retrieved it and got some beautiful pictures of
+        near-space
 
-    <section id="education">
-      <h2>Education</h2>
+      <ul>
+        <li><a href="https://docs.google.com/document/d/1L43hPQo4AkS-hTmH7CktVBouToB057ABRxVKOCSF4as/edit?hl=en_US">Preliminary Report</a>
+        <li><a href="https://docs.google.com/document/d/1lf0uvNcClZqlrvi021HMQM-PDUEtJkkjbr51KNtkyqA/edit?hl=en_US">Final Report</a>
+        <li><a href="https://picasaweb.google.com/iamcypress/WeatherBalloon">Slideshow Overview</a>
+        <li><a href="http://www.youtube.com/watch?v=g4_lIZIO87s">View from bottom camera</a>
+        <li><a href="http://www.youtube.com/watch?v=rvfdeCIpSC8">View from side camera</a>
+        <li><a href="https://docs.google.com/document/d/10j8-qTbA5h9dXGsnJbfVmXvVzwgiQvGv25DRd19Gp5c/edit?hl=en_US">Weight of Components</a>
+      </ul>
+    </article>
 
-      <article id="olin">
-        <h3>
-          <a href="http://olin.edu/">Franklin W. Olin College of Engineering</a>
-        </h3>
-        <p>BS in Engineering with a Concentration in Computing, 2014.</p>
-        <p>
-          A tiny, new, engineering school that is experimenting with new types
-          of project and team-based education.
-        </p>
-      </article>
-    </section>
-  </main>
+    <article id="digicom">
+      <h3>
+        <a href="olin-nasa/dcom">X-Ray Digital Signal Transmission</a>
+      </h3>
+      <p>
+        As part of a NASA internship, three teammates and I worked on a
+        device that transmits digital signals via x-rays. We made a proof of
+        concept, and a demo that can be used to demonstrate the capabilities
+        of x-ray transmission. In the future, this could be used to transmit
+        large amounts of information over vast distances through space.
+    </article>
 
-  <footer>
-    <ul id="online">
-      <li><a rel="me" href="https://better.boston/@cy">Mastodon</a></li>
-      <li>
-        <a href="http://www.linkedin.com/pub/cypress-frankenfeld/8/1bb/856">LinkedIn</a>
-      </li>
-      <li><a href="https://github.com/cypressf">Github</a></li>
-    </ul>
-  </footer>
-</body>
+    <article id="tec">
+      <h3>
+        <a href="https://web.archive.org/web/20170430173216/http://nasa.olin.edu/projects/2011/tec/">Thermoelectric
+          Cooler Controller</a>
+      </h3>
+      <p>
+        I helped design a control algorithm to cool an image sensor on a
+        small satellite as part of the NASA internship.
+    </article>
 
-</html>
+    <article id="smart_words">
+      <h3>
+        <a href="http://www.instructables.com/id/Smart-word-blocks/">Smart Word Blocks</a>
+      </h3>
+      <p>
+        Think of fridge magnets. You can arrange them to make fun sentences!
+        What if the magnets were "smart," and gave you suggestions for more
+        words to add? Using QR codes on word-blocks, we did just that.
+    </article>
+
+    <article id="armadillo">
+      <h3>Bioinspired Radio-Controlled Armadillo Toy</h3>
+      <p>
+        As part of a team, I designed and built a prototype armadillo toy.
+        It was able to curl and uncurl, roll while in the curled position,
+        and move along the floor while in the uncurled position. It is all
+        radio-controlled and driven by two servos. You can see the
+        <a href="http://www.youtube.com/watch?v=G7LLzQ-EPYQ">prototype demo video</a>
+        on youtube.
+    </article>
+
+    <article id="sex_ed">
+      <h3>
+        <a href="sex_ed.html">Investigation of Sex Education and Pregnancy rates</a>
+      </h3>
+      <p>
+        Goal: investigating the effects of abstinence-only sex education and
+        comprehensive sex education on pregnancy rates, unwanted pregnancy
+        rates, and age of first pregnancy for young adults and teens.
+    </article>
+
+    <article id="monopole">
+      <h3>Comparison of Magnetic Monopole Simulation Programs</h3>
+      <p>
+        While I was interning at the physics department of the University of
+        Kansas, I compared the outputs of two magnetic monopole simulation
+        programs. Magnetic monopole simulations are helpful for physicists
+        who are searching for magnetic monopoles. You can read the
+        <a href="http://arxiv.org/pdf/1008.1282">monopole simulation and detection paper</a>
+        that some of my work was incorporated into.
+    </article>
+  </section>
+
+  <section id="jobs">
+    <h2>Jobs</h2>
+    <article id="Lumafield">
+      <h3>
+        <a href="https://lumafield.com">Lumafield (May 2023-present)</a>
+      </h3>
+      <p>I make software for 3D CT Scanners.
+    </article>
+
+    <article id="MIT">
+      <h3>
+        <a href="https://globalchange.mit.edu/">MIT Joint Program on the Science and Policy of Global Change
+          (Part time, Jan 2020-present)</a>
+      </h3>
+      <p>
+        I'm helping climate researchers create interactive dashboards to
+        visualize climate data.
+      <ul>
+        <li><a href="https://mitjointprogram.shinyapps.io/eppa/">EPPA Dashboard</a>
+      </ul>
+    </article>
+
+    <article id="Hubspot">
+      <h3><a href="http://hubspot.com/">HubSpot (Jan 2018-Feb 2020)</a></h3>
+      <p>
+        I worked at <a href="http://hubspot.com/">HubSpot</a> as a backend
+        software engineer on the SEO tools and authorization stack.
+    </article>
+
+    <article id="Intrepid">
+      <h3>
+        <a href="http://www.intrepid.io/">Intrepid (Independent contract work, Summer 2017)</a>
+      </h3>
+      <p>
+        I was recruited to help a team at
+        <a href="http://www.intrepid.io/">Intrepid</a> work on an Android
+        app.
+    </article>
+
+    <article id="Onshape">
+      <h3>
+        <a href="http://onshape.com/">Onshape (Summer 2014, Feb 2015-May 2017)</a>
+      </h3>
+      <p>
+        I worked at <a href="http://onshape.com/">Onshape</a> on their
+        <a href="https://play.google.com/store/apps/details?id=com.onshape.app">Android App</a>.
+    </article>
+
+    <article id="sookbox">
+      <h3><a href="http://sookbox.com">Sookbox (Summer 2013)</a></h3>
+      <p>
+        I worked at <a href="http://sookbox.com">Sookbox</a>, creating a
+        home media server.
+    </article>
+
+    <article id="neuroscouting">
+      <h3>
+        <a href="https://www.neuroscouting.com">Neuroscouting (Summer 2012)</a>
+      </h3>
+      <p>
+        I worked as a web dev, front and back ends, using django. Most of my
+        job involved displaying data in an easy-to-read way.
+    </article>
+
+    <article id="nasa">
+      <h3>
+        <a href="https://web.archive.org/web/20170114081643/http://nasa.olin.edu/">NASA Intern (Summer 2011)</a>
+      </h3>
+      <p>
+        I interned with NASA and worked on a couple exciting projects. My
+        teammates and I helped build an x-ray system to transmit digital
+        data and a thermoelectric cooler controller for a pico-satellite.
+    </article>
+
+    <article id="olin-it">
+      <h3>Olin College IT Assistant (2011)</h3>
+      <p>
+        I helped out at the IT department at my college, fixing broken
+        computers.
+    </article>
+
+    <article id="ku-physics">
+      <h3>University of Kansas Particle Physics Intern (Summer 2010)</h3>
+      <p>
+        I interned with professor Dave Besson at the University of Kansas to
+        help compare some magnetic monopole simulations.
+
+    </article>
+
+    <article id="tap">
+      <h3>Tap Dance Teacher (2010)</h3>
+      <p>
+        I designed and taught a children's tap dance class at the
+        <a href="http://www.lawrenceartscenter.org/">Lawrence Arts Center</a>.
+    </article>
+
+    <article id="piano">
+      <h3>Assistant Piano Teacher (2008-2009)</h3>
+      <p>
+        I taught piano to children at the
+        <a href="http://www.lawrencepiano.com/">Lawrence Piano Studio</a>
+        under the guidance of piano instructor Eric Sakumura.
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article id="olin">
+      <h3>
+        <a href="http://olin.edu/">Franklin W. Olin College of Engineering</a>
+      </h3>
+      <p>BS in Engineering with a Concentration in Computing, 2014.
+      <p>
+        A tiny, new, engineering school that is experimenting with new types
+        of project and team-based education.
+    </article>
+  </section>
+</main>
+
+<footer>
+  <ul id="online">
+    <li><a rel="me" href="https://better.boston/@cy">Mastodon</a>
+    <li><a href="http://www.linkedin.com/pub/cypress-frankenfeld/8/1bb/856">LinkedIn</a>
+    <li><a href="https://github.com/cypressf">Github</a>
+  </ul>
+</footer>
