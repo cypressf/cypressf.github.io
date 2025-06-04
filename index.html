@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#495874" />
-  <link rel="canonical" href="https://cypressf.com" />
-  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1" />
-  <meta name="description" content="Cypress's projects and jobs, plus some contact information." />
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#495874">
+  <link rel="canonical" href="https://cypressf.com">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <meta name="description" content="Cypress's projects and jobs, plus some contact information.">
   <title>Cypress Frankenfeld</title>
   <style>
     body {
@@ -24,7 +24,9 @@
       text-decoration: underline;
     }
 
-    h1 {
+    h1,
+    h2,
+    h3 {
       font-weight: normal;
       margin: 0;
       padding: 0;
@@ -41,7 +43,7 @@
       border: none;
     }
 
-    article h1 {
+    article h3 {
       font-weight: bold;
       padding-bottom: 0.5em;
     }
@@ -50,7 +52,7 @@
       white-space: nowrap;
     }
 
-    section>h1,
+    section>h2,
     header h1 {
       font-size: 3em;
       transition: font-size 0.2s;
@@ -140,7 +142,7 @@
 
     @media screen and (max-width: 46em) {
 
-      section>h1,
+      section>h2,
       header h1 {
         font-size: 1.6em;
         transition: font-size 0.2s;
@@ -175,13 +177,13 @@
 
     @media screen and (max-height: 36em) {
 
-      section>h1,
+      section>h2,
       header h1 {
         font-size: 1.6em;
         transition: font-size 0.2s;
       }
 
-      article h1 {
+      article h3 {
         padding-bottom: 0;
       }
 
@@ -226,7 +228,7 @@
     }
 
     a,
-    article h1 a {
+    article h3 a {
       color: var(--link-color);
     }
 
@@ -234,12 +236,12 @@
       font-weight: bold;
     }
 
-    section>h1 {
+    section>h2 {
       color: var(--section-header);
     }
 
     article,
-    article h1 {
+    article h3 {
       border-color: var(--article-border);
     }
 
@@ -266,12 +268,12 @@
 
   <main>
     <section id="projects">
-      <h1>Projects</h1>
+      <h2>Projects</h2>
 
       <article id="scope-facebook">
-        <h1>
+        <h3>
           <a href="scope-website">Peer-to-peer Data Transmission for Facebook</a>
-        </h1>
+        </h3>
         <p>
           This prototype app reduces Facebook data consumption by sharing
           directly via peer-to-peer connections. This could help people use
@@ -279,7 +281,7 @@
         </p>
       </article>
       <article id="robot-navigation">
-        <h1><a href="Rescuebot Writeup.pdf">Robot Navigation</a></h1>
+        <h3><a href="Rescuebot%20Writeup.pdf">Robot Navigation</a></h3>
         <p>
           Implemented a series of algorithms to make a
           LIDAR-and-camera-equipped robot find colorful targets, in
@@ -290,7 +292,7 @@
       </article>
 
       <article id="eye-helper">
-        <h1>Prototype app to help blind people navigate grocery stores</h1>
+        <h3>Prototype app to help blind people navigate grocery stores</h3>
         <ul>
           <li>
             <a href="https://github.com/cypressf/eye-helper">Android code</a>
@@ -302,17 +304,17 @@
       </article>
 
       <article id="jac">
-        <h1>
+        <h3>
           <a href="https://github.com/amankapur/codeinjection">An interpreter that lets you change code while it's
             running</a>
-        </h1>
+        </h3>
         <p>I worked on this as a final project for an interpreters course.</p>
       </article>
 
       <article id="gameplay-initiative">
-        <h1>
+        <h3>
           <a href="http://gameplayinitiative.tumblr.com/">Radical Gameplay Initiative</a>
-        </h1>
+        </h3>
         <p>
           I created <em>novel</em> and <em>fun</em> gameplay concepts by
           rapidly prototyping games that use interesting input and feedback
@@ -322,9 +324,9 @@
       </article>
 
       <article id="dominion-randomizer">
-        <h1>
+        <h3>
           <a href="https://github.com/cypressf/dominion">Webapp to Randomize Dominion Cards</a>
-        </h1>
+        </h3>
         <p>
           A popular card game called
           <a href="http://www.amazon.com/Rio-Grande-Games-RGG370-Dominion/dp/B001JQY6K4">Dominion</a>
@@ -336,10 +338,10 @@
       </article>
 
       <article id="fit-log">
-        <h1>
+        <h3>
           <a href="https://web.archive.org/web/20150515142053/http://hfid.olin.edu/sa2013/s_engr3220-soul-patch">Fit-Log:
             prototype iOS app for personal trainers</a>
-        </h1>
+        </h3>
 
         <p>
           This project was an exercise in interaction design. We designed and
@@ -351,7 +353,7 @@
       </article>
 
       <article id="autonomous-glider">
-        <h1>Autonomous Glider</h1>
+        <h3>Autonomous Glider</h3>
         <p><a href="http://www.youtube.com/watch?v=eauEZNAsabc">Video</a></p>
         <p>Goal: To build a glider capable of autonomous flight.</p>
 
@@ -369,7 +371,7 @@
       </article>
 
       <article id="weather-balloon">
-        <h1>Weather Balloon Payload</h1>
+        <h3>Weather Balloon Payload</h3>
         <p>
           Three teammates and I built a payload with cameras and other various
           sensors, attached it to a weather balloon, and let it go. It
@@ -403,9 +405,9 @@
       </article>
 
       <article id="digicom">
-        <h1>
+        <h3>
           <a href="olin-nasa/dcom">X-Ray Digital Signal Transmission</a>
-        </h1>
+        </h3>
         <p>
           As part of a NASA internship, three teammates and I worked on a
           device that transmits digital signals via x-rays. We made a proof of
@@ -416,10 +418,10 @@
       </article>
 
       <article id="tec">
-        <h1>
+        <h3>
           <a href="https://web.archive.org/web/20170430173216/http://nasa.olin.edu/projects/2011/tec/">Thermoelectric
             Cooler Controller</a>
-        </h1>
+        </h3>
         <p>
           I helped design a control algorithm to cool an image sensor on a
           small satellite as part of the NASA internship.
@@ -427,9 +429,9 @@
       </article>
 
       <article id="smart_words">
-        <h1>
+        <h3>
           <a href="http://www.instructables.com/id/Smart-word-blocks/">Smart Word Blocks</a>
-        </h1>
+        </h3>
         <p>
           Think of fridge magnets. You can arrange them to make fun sentences!
           What if the magnets were "smart," and gave you suggestions for more
@@ -438,7 +440,7 @@
       </article>
 
       <article id="armadillo">
-        <h1>Bioinspired Radio-Controlled Armadillo Toy</h1>
+        <h3>Bioinspired Radio-Controlled Armadillo Toy</h3>
         <p>
           As part of a team, I designed and built a prototype armadillo toy.
           It was able to curl and uncurl, roll while in the curled position,
@@ -450,9 +452,9 @@
       </article>
 
       <article id="sex_ed">
-        <h1>
+        <h3>
           <a href="sex_ed.html">Investigation of Sex Education and Pregnancy rates</a>
-        </h1>
+        </h3>
         <p>
           Goal: investigating the effects of abstinence-only sex education and
           comprehensive sex education on pregnancy rates, unwanted pregnancy
@@ -461,7 +463,7 @@
       </article>
 
       <article id="monopole">
-        <h1>Comparison of Magnetic Monopole Simulation Programs</h1>
+        <h3>Comparison of Magnetic Monopole Simulation Programs</h3>
         <p>
           While I was interning at the physics department of the University of
           Kansas, I compared the outputs of two magnetic monopole simulation
@@ -474,19 +476,19 @@
     </section>
 
     <section id="jobs">
-      <h1>Jobs</h1>
+      <h2>Jobs</h2>
       <article id="Lumafield">
-        <h1>
+        <h3>
           <a href="https://lumafield.com">Lumafield (May 2023-present)</a>
-        </h1>
+        </h3>
         <p>I make software for 3D CT Scanners.</p>
       </article>
 
       <article id="MIT">
-        <h1>
+        <h3>
           <a href="https://globalchange.mit.edu/">MIT Joint Program on the Science and Policy of Global Change
             (Part time, Jan 2020-present)</a>
-        </h1>
+        </h3>
         <p>
           I'm helping climate researchers create interactive dashboards to
           visualize climate data.
@@ -500,7 +502,7 @@
       </article>
 
       <article id="Hubspot">
-        <h1><a href="http://hubspot.com/">HubSpot (Jan 2018-Feb 2020)</a></h1>
+        <h3><a href="http://hubspot.com/">HubSpot (Jan 2018-Feb 2020)</a></h3>
         <p>
           I worked at <a href="http://hubspot.com/">HubSpot</a> as a backend
           software engineer on the SEO tools and authorization stack.
@@ -508,9 +510,9 @@
       </article>
 
       <article id="Intrepid">
-        <h1>
+        <h3>
           <a href="http://www.intrepid.io/">Intrepid (Independent contract work, Summer 2017)</a>
-        </h1>
+        </h3>
         <p>
           I was recruited to help a team at
           <a href="http://www.intrepid.io/">Intrepid</a> work on an Android
@@ -519,9 +521,9 @@
       </article>
 
       <article id="Onshape">
-        <h1>
+        <h3>
           <a href="http://onshape.com/">Onshape (Summer 2014, Feb 2015-May 2017)</a>
-        </h1>
+        </h3>
         <p>
           I worked at <a href="http://onshape.com/">Onshape</a> on their
           <a href="https://play.google.com/store/apps/details?id=com.onshape.app">Android App</a>.
@@ -529,7 +531,7 @@
       </article>
 
       <article id="sookbox">
-        <h1><a href="http://sookbox.com">Sookbox (Summer 2013)</a></h1>
+        <h3><a href="http://sookbox.com">Sookbox (Summer 2013)</a></h3>
         <p>
           I worked at <a href="http://sookbox.com">Sookbox</a>, creating a
           home media server.
@@ -537,9 +539,9 @@
       </article>
 
       <article id="neuroscouting">
-        <h1>
+        <h3>
           <a href="https://www.neuroscouting.com">Neuroscouting (Summer 2012)</a>
-        </h1>
+        </h3>
         <p>
           I worked as a web dev, front and back ends, using django. Most of my
           job involved displaying data in an easy-to-read way.
@@ -547,9 +549,9 @@
       </article>
 
       <article id="nasa">
-        <h1>
+        <h3>
           <a href="https://web.archive.org/web/20170114081643/http://nasa.olin.edu/">NASA Intern (Summer 2011)</a>
-        </h1>
+        </h3>
         <p>
           I interned with NASA and worked on a couple exciting projects. My
           teammates and I helped build an x-ray system to transmit digital
@@ -558,7 +560,7 @@
       </article>
 
       <article id="olin-it">
-        <h1>Olin College IT Assistant (2011)</h1>
+        <h3>Olin College IT Assistant (2011)</h3>
         <p>
           I helped out at the IT department at my college, fixing broken
           computers.
@@ -566,7 +568,7 @@
       </article>
 
       <article id="ku-physics">
-        <h1>University of Kansas Particle Physics Intern (Summer 2010)</h1>
+        <h3>University of Kansas Particle Physics Intern (Summer 2010)</h3>
         <p>
           I interned with professor Dave Besson at the University of Kansas to
           help compare some magnetic monopole simulations.
@@ -574,7 +576,7 @@
       </article>
 
       <article id="tap">
-        <h1>Tap Dance Teacher (2010)</h1>
+        <h3>Tap Dance Teacher (2010)</h3>
         <p>
           I designed and taught a children's tap dance class at the
           <a href="http://www.lawrenceartscenter.org/">Lawrence Arts Center</a>.
@@ -582,7 +584,7 @@
       </article>
 
       <article id="piano">
-        <h1>Assistant Piano Teacher (2008-2009)</h1>
+        <h3>Assistant Piano Teacher (2008-2009)</h3>
         <p>
           I taught piano to children at the
           <a href="http://www.lawrencepiano.com/">Lawrence Piano Studio</a>
@@ -592,12 +594,12 @@
     </section>
 
     <section id="education">
-      <h1>Education</h1>
+      <h2>Education</h2>
 
       <article id="olin">
-        <h1>
+        <h3>
           <a href="http://olin.edu/">Franklin W. Olin College of Engineering</a>
-        </h1>
+        </h3>
         <p>BS in Engineering with a Concentration in Computing, 2014.</p>
         <p>
           A tiny, new, engineering school that is experimenting with new types
